@@ -1,0 +1,2523 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: #f4f5f7;
+    color: #222;
+}
+
+.header {
+    padding: 20px;
+    text-align: center;
+}
+
+.header h1 {
+    margin: 0;
+    font-size: 32px;
+}
+
+.header p {
+    margin-top: 6px;
+    color: #666;
+}
+
+.notes-container {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 20px;
+    padding: 20px;
+    max-width: 1100px;
+    margin: auto;
+}
+
+.note {
+    min-height: 180px;
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.12);
+    transition: transform 0.2s;
+}
+
+.note:hover {
+    transform: translateY(-5px);
+}
+
+.note h3 {
+    margin-top: 0;
+}
+
+.yellow {
+    background: #fff3a6;
+}
+
+.blue {
+    background: #bfe3ff;
+}
+
+.green {
+    background: #c8f7c5;
+}
+
+.pink {
+    background: #ffd1dc;
+}
+
+.purple {
+    background: #d8b4fe;
+}
+
+
+@media (max-width: 600px) {
+    .notes-container {
+        grid-template-columns: 1fr;
+        padding: 15px;
+    }
+
+    .header h1 {
+        font-size: 28px;
+    }
+}
+
+/* NoteX Controls */
+
+#addNoteBtn {
+    border: none;
+    padding: 10px 18px;
+    border-radius: 20px;
+    background: #222;
+    color: white;
+    font-size: 15px;
+    cursor: pointer;
+    margin-top: 10px;
+}
+
+#addNoteBtn:hover {
+    transform: scale(1.05);
+}
+
+.search-box {
+    max-width: 500px;
+    margin: 10px auto 0;
+    padding: 0 20px;
+}
+
+#searchInput {
+    width: 100%;
+    padding: 12px 16px;
+    border: 2px solid #ddd;
+    border-radius: 25px;
+    outline: none;
+    font-size: 15px;
+}
+
+#searchInput:focus {
+    border-color: #999;
+}
+
+.pin-note,
+.delete-note {
+    border: none;
+    background: transparent;
+    cursor: pointer;
+    font-size: 17px;
+    padding: 4px;
+    border-radius: 8px;
+}
+
+.pin-note {
+    float: left;
+}
+
+.delete-note {
+    float: right;
+}
+
+.pin-note:hover,
+.delete-note:hover {
+    background: rgba(0, 0, 0, 0.08);
+    transform: scale(1.1);
+}
+
+/* NoteX Color Buttons */
+
+.color-picker {
+    display: flex;
+    gap: 5px;
+    margin: 8px 0;
+}
+
+.color-btn {
+    border: none;
+    background: transparent;
+    padding: 2px;
+    cursor: pointer;
+    font-size: 16px;
+    border-radius: 6px;
+}
+
+.color-btn:hover {
+    transform: scale(1.15);
+    background: rgba(0, 0, 0, 0.08);
+}
+
+/* NoteX Dark Mode */
+
+body.dark-mode {
+    background: #18181b;
+    color: #f5f5f5;
+}
+
+body.dark-mode .header p {
+    color: #aaa;
+}
+
+body.dark-mode #searchInput {
+    background: #27272a;
+    color: #fff;
+    border-color: #444;
+}
+
+body.dark-mode #searchInput::placeholder {
+    color: #aaa;
+}
+
+body.dark-mode #addNoteBtn,
+body.dark-mode #darkModeBtn {
+    background: #f5f5f5;
+    color: #18181b;
+}
+
+/* =========================
+   NoteX Mobile UI
+   ========================= */
+
+   @media (max-width: 600px) {
+
+    body {
+        padding: 12px;
+    }
+
+    .header {
+        padding: 18px 10px;
+    }
+
+    .header h1 {
+        font-size: 28px;
+    }
+
+    .header p {
+        font-size: 14px;
+    }
+
+    .notes-container {
+        grid-template-columns: 1fr;
+        gap: 14px;
+        width: 100%;
+    }
+
+    .note {
+        width: 100%;
+        box-sizing: border-box;
+        padding: 14px;
+    }
+
+    .note-title {
+        width: 100%;
+        box-sizing: border-box;
+        font-size: 17px;
+    }
+
+    .note-text {
+        width: 100%;
+        min-height: 130px;
+        box-sizing: border-box;
+        font-size: 15px;
+    }
+
+    .color-picker {
+        gap: 7px;
+    }
+
+    .color-btn {
+        font-size: 18px;
+        padding: 4px;
+    }
+
+    #addNoteBtn,
+    #darkModeBtn {
+        width: 100%;
+        min-height: 44px;
+        margin-top: 8px;
+    }
+
+    #searchInput {
+        width: 100%;
+        box-sizing: border-box;
+        min-height: 44px;
+        font-size: 16px;
+    }
+}
+
+/* NoteX Mobile Header Polish */
+
+@media (max-width: 600px) {
+    .header {
+        padding: 12px 8px;
+        margin-bottom: 8px;
+        text-align: center;
+    }
+
+    .header h1 {
+        font-size: 24px;
+        margin: 0 0 4px;
+    }
+
+    .header p {
+        font-size: 13px;
+        margin: 0;
+    }
+}
+.color-btn {
+    width: 22px;
+    height: 22px;
+    border-radius: 50%;
+    border: 2px solid #333;
+}
+
+.yellow-btn {
+    background: #fff3a6;
+}
+
+.blue-btn {
+    background: #bfe3ff;
+}
+
+.green-btn {
+    background: #c8f7c5;
+}
+
+.pink-btn {
+    background: #ffd1dc;
+}
+
+.purple-btn {
+    background: #d8b4fe;
+}
+.pin-note,
+.delete-note {
+    font-family: "Segoe UI Emoji", "Noto Color Emoji", sans-serif;
+    font-size: 22px;
+}
+
+.pin-icon {
+    color: #ef4444;
+}
+
+.bin-icon {
+    color: #ef4444;
+}
+.delete-note {
+    border: none;
+    background: transparent;
+    cursor: pointer;
+    font-size: 22px;
+    padding: 4px;
+    outline: none;
+    appearance: none;
+}
+
+.delete-note:hover {
+    transform: scale(1.15);
+    background: rgba(239, 68, 68, 0.1);
+    border-radius: 8px;
+}
+/* NoteX Trash Icon */
+
+.delete-note {
+    border: none;
+    background: transparent;
+    padding: 5px;
+    cursor: pointer;
+    outline: none;
+    width: 32px;
+    height: 32px;
+}
+
+.trash-icon {
+    position: relative;
+    display: block;
+    width: 14px;
+    height: 16px;
+    margin: auto;
+    background: #ef4444;
+    border-radius: 2px;
+}
+
+.trash-icon::before {
+    content: "";
+    position: absolute;
+    width: 18px;
+    height: 3px;
+    background: #ef4444;
+    left: -2px;
+    top: -4px;
+    border-radius: 2px;
+}
+
+.trash-icon::after {
+    content: "";
+    position: absolute;
+    width: 6px;
+    height: 2px;
+    background: #ef4444;
+    left: 4px;
+    top: -7px;
+    border-radius: 2px;
+}
+
+.delete-note:hover {
+    transform: scale(1.15);
+    background: rgba(239, 68, 68, 0.1);
+    border-radius: 8px;
+}
+#undoBar {
+    position: fixed;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: #222;
+    color: white;
+    padding: 10px 16px;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    z-index: 9999;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+#undoBtn {
+    border: none;
+    background: #facc15;
+    color: #222;
+    padding: 6px 12px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+#undoBtn:hover {
+    transform: scale(1.05);
+}
+
+#noteCounter {
+    text-align: center;
+    font-size: 13px;
+    color: #666;
+    margin: 4px 0 0;
+    width: 100%;
+}
+body.dark-mode #noteCounter {
+    color: #aaa;
+}
+
+/* NoteX Layout Toggle */
+
+.notes-container.two-columns {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+#layoutToggleBtn,
+#deletedBtn {
+    border: none;
+    padding: 10px 16px;
+    border-radius: 20px;
+    background: #222;
+    color: white;
+    font-size: 14px;
+    cursor: pointer;
+    margin-top: 10px;
+}
+
+#layoutToggleBtn:hover,
+#deletedBtn:hover {
+    transform: scale(1.05);
+}
+
+body.dark-mode #layoutToggleBtn,
+body.dark-mode #deletedBtn {
+    background: #f5f5f5;
+    color: #18181b;
+}
+
+@media (max-width: 600px) {
+    .notes-container.two-columns {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 10px;
+        padding: 10px;
+    }
+
+    .notes-container.two-columns .note {
+        min-height: 160px;
+        padding: 10px;
+    }
+}
+
+/* Recently Deleted Modal */
+
+#deletedModal {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 10000;
+    padding: 20px;
+}
+
+.deleted-box {
+    position: relative;
+    background: white;
+    color: #222;
+    width: 100%;
+    max-width: 500px;
+    max-height: 80vh;
+    overflow-y: auto;
+    padding: 25px;
+    border-radius: 16px;
+}
+
+.close-deleted {
+    position: absolute;
+    top: 12px;
+    right: 12px;
+    border: none;
+    background: transparent;
+    font-size: 22px;
+    cursor: pointer;
+}
+
+.deleted-note-item {
+    padding: 12px;
+    margin-top: 10px;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+}
+
+.deleted-note-item div {
+    margin-top: 10px;
+    display: flex;
+    gap: 8px;
+}
+
+.restore-note,
+.permanent-delete {
+    border: none;
+    padding: 7px 12px;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+.restore-note {
+    background: #c8f7c5;
+}
+
+.permanent-delete {
+    background: #ffd1dc;
+}
+
+@media (max-width: 380px) {
+    .note {
+        padding: 10px;
+    }
+
+    .pin-note,
+    .delete-note {
+        font-size: 18px;
+    }
+
+    .delete-note {
+        width: 28px;
+        height: 28px;
+        padding: 2px;
+    }
+
+    .color-picker {
+        clear: both;
+        padding-top: 4px;
+    }
+
+    .color-btn {
+        width: 20px;
+        height: 20px;
+    }
+}
+
+#noxiBtn {
+    cursor: pointer;
+}
+
+#noxiModal {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.55);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 9999;
+}
+
+.noxi-box {
+    width: min(90%, 500px);
+    max-height: 85vh;
+    overflow-y: auto;
+    padding: 25px;
+    border-radius: 18px;
+    background: white;
+    position: relative;
+}
+
+.close-noxi {
+    position: absolute;
+    right: 15px;
+    top: 12px;
+    border: none;
+    background: none;
+    font-size: 20px;
+    cursor: pointer;
+}
+
+.noxi-options {
+    display: grid;
+    gap: 10px;
+    margin-top: 20px;
+}
+
+.noxi-options button {
+    padding: 12px;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+.noxi-result {
+    margin-top: 20px;
+    padding: 15px;
+    border-radius: 10px;
+    background: #f3f3f3;
+}
+
+.note-tag {
+    width: 100%;
+    box-sizing: border-box;
+    border: none;
+    outline: none;
+    background: transparent;
+    font-size: 13px;
+    margin-top: 8px;
+    opacity: 0.75;
+}
+
+.note-tag::placeholder {
+    opacity: 0.7;
+}
+
+/* ===== NoteX UI POLISH ===== */
+
+.note {
+    border-radius: 18px;
+    padding: 20px;
+    box-sizing: border-box;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.note:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+}
+
+.note-title,
+.note-text,
+.note-tag {
+    border: none;
+    outline: none;
+    background: rgba(255, 255, 255, 0.35);
+    border-radius: 9px;
+    padding: 9px 11px;
+    box-sizing: border-box;
+    font-family: inherit;
+}
+
+.note-title {
+    width: 100%;
+    font-size: 16px;
+    font-weight: 600;
+    margin-top: 12px;
+}
+
+.note-text {
+    width: 100%;
+    min-height: 90px;
+    resize: vertical;
+    margin-top: 8px;
+    font-size: 14px;
+}
+
+.note-tag {
+    width: 100%;
+    margin-top: 8px;
+    font-size: 13px;
+}
+
+.note-title:focus,
+.note-text:focus,
+.note-tag:focus {
+    box-shadow: 0 0 0 2px rgba(0, 0, 0, 0.15);
+}
+
+.search-box input {
+    border-radius: 18px;
+    padding: 12px 16px;
+    font-size: 14px;
+    outline: none;
+}
+
+.header button,
+#darkModeBtn,
+#layoutToggleBtn,
+#deletedBtn,
+#addNoteBtn,
+#noxiBtn {
+    border-radius: 20px;
+    padding: 10px 15px;
+    border: none;
+    cursor: pointer;
+    transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+.header button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+}
+
+#quickMenuBtn {
+    position: absolute;
+    top: 18px;
+    left: 18px;
+    width: 34px;
+    height: 34px;
+    padding: 0;
+    border: none;
+    border-radius: 10px;
+    font-size: 26px;
+    line-height: 34px;
+    cursor: pointer;
+    background: rgba(255, 255, 255, 0.65);
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.10);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+#quickMenuBtn:hover {
+    transform: rotate(25deg) scale(1.08);
+    box-shadow: 0 5px 14px rgba(0, 0, 0, 0.16);
+}
+
+/* ===== Quick Menu ===== */
+
+.quick-menu {
+    position: absolute;
+    top: 62px;
+    left: 18px;
+    width: 190px;
+    padding: 8px;
+    background: rgba(255, 255, 255, 0.95);
+    border-radius: 14px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+    z-index: 1000;
+    box-sizing: border-box;
+    overflow: hidden;
+}
+
+.quick-menu button {
+    display: block;
+    width: 100%;
+    height: auto;
+    min-height: 0;
+    margin: 0;
+    padding: 10px 12px;
+    border: none;
+    background: transparent !important;
+    border-radius: 9px;
+    text-align: left;
+    font-size: 14px;
+    cursor: pointer;
+    box-sizing: border-box;
+}
+
+.quick-menu button:hover {
+    background: rgba(0, 0, 0, 0.07) !important;
+}
+
+.quick-menu button:nth-child(2) {
+    position: static !important;
+    transform: none !important;
+    width: 100% !important;
+    margin: 0 !important;
+    padding: 10px 12px !important;
+    background: transparent !important;
+    box-shadow: none !important;
+}
+
+#appearanceBtn {
+    all: unset !important;
+    display: block !important;
+    width: 100% !important;
+    box-sizing: border-box !important;
+    padding: 10px 12px !important;
+    margin: 0 !important;
+    border-radius: 9px !important;
+    cursor: pointer !important;
+    font-size: 14px !important;
+    text-align: left !important;
+    background: transparent !important;
+    box-shadow: none !important;
+    transform: none !important;
+}
+
+/* Fix Quick Menu button interference */
+
+.quick-menu button,
+.quick-menu button:hover {
+    transform: none !important;
+    box-shadow: none !important;
+    border: none !important;
+    outline: none !important;
+}
+
+.quick-menu button:hover {
+    background: rgba(0, 0, 0, 0.07) !important;
+}
+
+#appearanceBtn:hover {
+    background: rgba(0, 0, 0, 0.07) !important;
+    box-shadow: none !important;
+    transform: none !important;
+}
+
+/* ===== Appearance Modal ===== */
+
+.appearance-modal {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.35);
+    z-index: 2000;
+    align-items: center;
+    justify-content: center;
+}
+
+.appearance-box {
+    position: relative;
+    width: 280px;
+    padding: 22px;
+    background: white;
+    border-radius: 18px;
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.25);
+    text-align: center;
+}
+
+.appearance-box h2 {
+    margin: 5px 0 20px;
+}
+
+#closeAppearance {
+    position: absolute;
+    top: 10px;
+    right: 12px;
+    border: none;
+    background: transparent;
+    font-size: 18px;
+    cursor: pointer;
+}
+
+.appearance-box > button:not(#closeAppearance) {
+    display: block;
+    width: 100%;
+    margin: 10px 0;
+    padding: 12px;
+    border: none;
+    border-radius: 12px;
+    cursor: pointer;
+    background: rgba(0, 0, 0, 0.06);
+    transition: 0.2s ease;
+}
+
+.appearance-box > button:not(#closeAppearance):hover {
+    background: rgba(0, 0, 0, 0.12);
+    transform: translateY(-1px);
+}
+
+/* Appearance box - Dark Mode */
+.dark-mode .appearance-box {
+    background: #1e1e1e;
+    color: white;
+}
+
+.dark-mode .appearance-box h2 {
+    color: white;
+}
+
+.dark-mode #closeAppearance {
+    color: white;
+}
+
+.dark-mode .appearance-box > button:not(#closeAppearance) {
+    background: rgba(255, 255, 255, 0.08);
+    color: white;
+}
+
+.dark-mode .appearance-box > button:not(#closeAppearance):hover {
+    background: rgba(255, 255, 255, 0.15);
+}
+
+/* Quick Menu - Appearance button in Dark Mode */
+.dark-mode #appearanceBtn {
+    color: black !important;
+    opacity: 1 !important;
+}
+
+/* ==================== FORCE APPEARANCE TEXT ==================== */
+
+.quick-menu #appearanceBtn {
+    color: #ffffff !important;
+    -webkit-text-fill-color: #ffffff !important;
+}
+
+.quick-menu #appearanceBtn:hover {
+    color: #111111 !important;
+    -webkit-text-fill-color: #111111 !important;
+}
+
+/* ==================== SETTINGS MODAL ==================== */
+
+.settings-modal {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.35);
+    z-index: 2000;
+    align-items: center;
+    justify-content: center;
+}
+
+.settings-box {
+    position: relative;
+    width: 300px;
+    padding: 22px;
+    background: white;
+    color: black;
+    border-radius: 18px;
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.25);
+    text-align: center;
+}
+
+.settings-box h2 {
+    margin: 5px 0 20px;
+}
+
+#closeSettings {
+    position: absolute;
+    top: 10px;
+    right: 12px;
+    border: none;
+    background: transparent;
+    color: black;
+    font-size: 18px;
+    cursor: pointer;
+}
+
+.settings-option {
+    margin: 12px 0;
+    padding: 12px;
+    border-radius: 12px;
+    background: rgba(0, 0, 0, 0.06);
+}
+
+.settings-option strong {
+    display: block;
+    margin-bottom: 5px;
+}
+
+.settings-option p {
+    margin: 0;
+    font-size: 13px;
+}
+
+/* ==================== ABOUT NOTEX MODAL ==================== */
+
+.about-modal {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.35);
+    z-index: 2000;
+    align-items: center;
+    justify-content: center;
+}
+
+.about-box {
+    position: relative;
+    width: 320px;
+    padding: 28px 24px;
+    background: white;
+    color: black;
+    border-radius: 20px;
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.25);
+    text-align: center;
+}
+
+.about-icon {
+    font-size: 42px;
+    margin-bottom: 8px;
+}
+
+.about-box h2 {
+    margin: 5px 0;
+}
+
+.about-version {
+    margin: 5px 0 18px;
+    font-size: 13px;
+    opacity: 0.6;
+}
+
+.about-description {
+    font-size: 17px;
+    font-weight: bold;
+    margin: 10px 0;
+}
+
+.about-text {
+    font-size: 14px;
+    line-height: 1.5;
+    opacity: 0.8;
+}
+
+.about-divider {
+    height: 1px;
+    background: rgba(0, 0, 0, 0.12);
+    margin: 18px 0;
+}
+
+.about-footer {
+    margin: 0;
+    font-size: 13px;
+    opacity: 0.65;
+}
+
+#closeAbout {
+    position: absolute;
+    top: 10px;
+    right: 12px;
+    border: none;
+    background: transparent;
+    color: black;
+    font-size: 18px;
+    cursor: pointer;
+}
+
+/* ==================== CLEAR ALL NOTES ==================== */
+
+#clearAllNotesBtn {
+    margin-top: 8px;
+    padding: 8px 14px;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    background: #ffdddd;
+    color: #b00000;
+    font-weight: bold;
+}
+
+#clearAllNotesBtn:hover {
+    background: #ffcaca;
+}
+
+/* ==================== NOTEX PREMIUM HEADER ==================== */
+
+.header {
+    position: relative;
+    max-width: 1100px;
+    margin: 16px auto 10px;
+    padding: 28px 20px 22px;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+
+    background: linear-gradient(
+        135deg,
+        rgba(255, 255, 255, 0.96),
+        rgba(238, 242, 255, 0.92)
+    );
+
+    border: 1px solid rgba(100, 116, 139, 0.16);
+    border-radius: 24px;
+
+    box-shadow:
+        0 8px 28px rgba(15, 23, 42, 0.07);
+
+    transition:
+        background 0.25s ease,
+        box-shadow 0.25s ease;
+}
+
+/* ==================== BRAND TITLE ==================== */
+
+.header h1 {
+    width: 100%;
+    margin: 0;
+    font-size: 36px;
+    font-weight: 800;
+    letter-spacing: -1px;
+    color: #4f46e5;
+}
+
+.header p {
+    width: 100%;
+    margin: -3px 0 10px;
+    color: #64748b;
+    font-size: 14px;
+}
+
+/* ==================== HEADER BUTTONS ==================== */
+
+.header button:not(#quickMenuBtn) {
+    min-height: 40px;
+    margin: 0;
+    padding: 10px 16px;
+
+    border: 1px solid rgba(100, 116, 139, 0.16);
+    border-radius: 12px;
+
+    background: #ffffff;
+    color: #334155;
+
+    font-size: 13px;
+    font-weight: 600;
+    cursor: pointer;
+
+    transition:
+        transform 0.18s ease,
+        box-shadow 0.18s ease,
+        background 0.18s ease;
+}
+
+.header button:not(#quickMenuBtn):hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 14px rgba(15, 23, 42, 0.10);
+}
+
+/* ==================== ADD NOTE BUTTON ==================== */
+
+.header #addNoteBtn {
+    background: #4f46e5;
+    color: #ffffff;
+    border-color: #4f46e5;
+}
+
+.header #addNoteBtn:hover {
+    background: #4338ca;
+}
+
+/* ==================== NOXI AI BUTTON ==================== */
+
+.header #hoaxdk {
+    background: linear-gradient(135deg, #059669, #0d9488);
+    color: #ffffff;
+    border-color: transparent;
+}
+
+.header #hoaxdk:hover {
+    box-shadow: 0 5px 16px rgba(5, 150, 105, 0.22);
+}
+
+/* ==================== QUICK MENU BUTTON ==================== */
+
+#quickMenuBtn {
+    top: 16px;
+    left: 16px;
+    background: #eef2ff;
+    color: #4f46e5;
+}
+
+/* ==================== DARK MODE HEADER ==================== */
+
+body.dark-mode .header {
+    background: linear-gradient(
+        135deg,
+        #20232c,
+        #191c24
+    );
+
+    border-color: rgba(255, 255, 255, 0.08);
+
+    box-shadow:
+        0 8px 28px rgba(0, 0, 0, 0.20);
+}
+
+body.dark-mode .header h1 {
+    color: #a5b4fc;
+}
+
+body.dark-mode .header p {
+    color: #a1a1aa;
+}
+
+body.dark-mode .header button:not(#quickMenuBtn) {
+    background: #2b303b;
+    color: #e2e8f0;
+    border-color: rgba(255, 255, 255, 0.08);
+}
+
+body.dark-mode .header #addNoteBtn {
+    background: #6366f1;
+    color: #ffffff;
+}
+
+body.dark-mode .header #hoaxdk {
+    background: linear-gradient(135deg, #059669, #0d9488);
+    color: #ffffff;
+}
+
+body.dark-mode #quickMenuBtn {
+    background: #303044;
+    color: #c7d2fe;
+}
+
+/* ==================== MOBILE HEADER ==================== */
+
+@media (max-width: 600px) {
+
+    .header {
+        margin: 8px auto 10px;
+        padding: 22px 12px 16px;
+        gap: 8px;
+        border-radius: 18px;
+    }
+
+    .header h1 {
+        font-size: 29px;
+    }
+
+    .header p {
+        font-size: 13px;
+        margin-bottom: 8px;
+    }
+
+    .header button:not(#quickMenuBtn) {
+        flex: 1 1 calc(50% - 8px);
+        min-width: 0;
+        min-height: 42px;
+        padding: 10px 8px;
+        font-size: 12px;
+    }
+
+    #quickMenuBtn {
+        top: 10px;
+        left: 10px;
+        width: 32px;
+        height: 32px;
+        font-size: 22px;
+        line-height: 32px;
+    }
+
+}
+
+/* ==================== CLEAN FRONT HEADER ==================== */
+
+/* Hide secondary controls from front header */
+
+#darkModeBtn,
+#layoutToggleBtn,
+#deletedBtn {
+    display: none !important;
+}
+
+
+/* ==================== FRONT ACTION BUTTONS ==================== */
+
+.header #addNoteBtn,
+.header #hoaxdk {
+    flex: 0 0 auto;
+    min-width: 135px;
+}
+
+
+/* ==================== MOBILE FRONT HEADER ==================== */
+
+@media (max-width: 600px) {
+
+    .header #addNoteBtn,
+    .header #hoaxdk {
+        flex: 1 1 calc(50% - 8px);
+        min-width: 0;
+    }
+
+}
+
+/* ==================== ADD NOTE WHITE HOVER ==================== */
+
+.header #addNoteBtn:hover {
+
+    background: white !important;
+    color: #111 !important;
+
+    transform: translateY(-2px);
+
+    box-shadow:
+        0 0 10px rgba(255, 255, 255, 0.35),
+        0 0 20px rgba(255, 255, 255, 0.15);
+
+}
+
+/* ==================== PREMIUM NOTE COUNTER ==================== */
+
+#noteCounter {
+
+    display: inline-block;
+
+    margin: 14px auto 10px;
+    padding: 8px 16px;
+
+    border-radius: 20px;
+
+    font-size: 14px;
+    font-weight: 600;
+
+    background: rgba(255, 255, 255, 0.08);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+
+    backdrop-filter: blur(8px);
+
+    transition:
+        transform 0.2s ease,
+        box-shadow 0.2s ease,
+        background 0.2s ease;
+}
+
+#noteCounter:hover {
+
+    transform: translateY(-2px);
+
+    background: rgba(255, 255, 255, 0.14);
+
+    box-shadow:
+        0 0 12px rgba(255, 255, 255, 0.12),
+        0 0 24px rgba(255, 255, 255, 0.06);
+}
+
+/* ==================== PREMIUM SEARCH BOX ==================== */
+
+.search-box input {
+    transition:
+        border-color 0.2s ease,
+        box-shadow 0.2s ease,
+        transform 0.2s ease;
+}
+
+.search-box input:hover {
+    border-color: rgba(255, 255, 255, 0.35);
+}
+
+.search-box input:focus {
+    outline: none;
+
+    border-color: rgba(255, 255, 255, 0.7);
+
+    box-shadow:
+        0 0 10px rgba(255, 255, 255, 0.18),
+        0 0 22px rgba(255, 255, 255, 0.08);
+
+    transform: translateY(-1px);
+}
+
+/* ==================== PREMIUM NOTE CARDS ==================== */
+
+.note {
+
+    position: relative;
+
+    border-radius: 18px;
+
+    padding: 20px;
+
+    border: 1px solid rgba(255, 255, 255, 0.18);
+
+    box-shadow:
+        0 8px 25px rgba(0, 0, 0, 0.12);
+
+    transition:
+        transform 0.25s ease,
+        box-shadow 0.25s ease,
+        border-color 0.25s ease;
+
+    overflow: hidden;
+}
+
+
+/* ==================== NOTE TOP SHINE ==================== */
+
+.note::before {
+
+    content: "";
+
+    position: absolute;
+
+    top: 0;
+    left: 0;
+
+    width: 100%;
+    height: 4px;
+
+    background: rgba(255, 255, 255, 0.65);
+
+    opacity: 0.7;
+}
+
+
+/* ==================== NOTE HOVER ==================== */
+
+.note:hover {
+
+    transform: translateY(-6px) scale(1.01);
+
+    border-color: rgba(255, 255, 255, 0.45);
+
+    box-shadow:
+        0 14px 35px rgba(0, 0, 0, 0.18),
+        0 0 18px rgba(255, 255, 255, 0.08);
+}
+
+
+/* ==================== NOTE TITLE ==================== */
+
+.note h3 {
+
+    margin-top: 2px;
+    margin-bottom: 12px;
+
+    font-size: 18px;
+
+    font-weight: 700;
+}
+
+
+/* ==================== NOTE TEXT ==================== */
+
+.note p {
+
+    line-height: 1.6;
+
+    font-size: 14px;
+
+    margin-bottom: 0;
+}
+
+/* ==================== PREMIUM NOTE ACTION BUTTONS ==================== */
+
+.note .pin-note,
+.note .delete-note {
+
+    width: 34px;
+    height: 34px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 12px;
+
+    border: 1px solid rgba(255, 255, 255, 0.28);
+
+    background: rgba(255, 255, 255, 0.18);
+
+    backdrop-filter: blur(6px);
+
+    box-shadow:
+        0 4px 10px rgba(0, 0, 0, 0.15);
+
+    cursor: pointer;
+
+    transition:
+        transform 0.18s ease,
+        box-shadow 0.18s ease,
+        background 0.18s ease;
+}
+
+
+/* ==================== PIN HOVER ==================== */
+
+.note .pin-note:hover {
+
+    background: rgba(255, 255, 255, 0.75);
+
+    transform: translateY(-2px) scale(1.05);
+
+    box-shadow:
+        0 6px 14px rgba(0, 0, 0, 0.18),
+        0 0 12px rgba(255, 255, 255, 0.25);
+}
+
+
+/* ==================== DELETE HOVER ==================== */
+
+.note .delete-note:hover {
+
+    background: rgba(255, 255, 255, 0.75);
+
+    transform: translateY(-2px) scale(1.05);
+
+    box-shadow:
+        0 6px 14px rgba(0, 0, 0, 0.18),
+        0 0 12px rgba(255, 255, 255, 0.25);
+}
+
+
+/* ==================== BUTTON PRESS ==================== */
+
+.note .pin-note:active,
+.note .delete-note:active {
+
+    transform: translateY(1px) scale(0.96);
+
+}
+
+/* ==================== PREMIUM COLOR PICKER ==================== */
+
+.note .color-picker {
+
+    padding: 6px 8px;
+
+    display: flex;
+    align-items: center;
+    gap: 6px;
+
+    width: fit-content;
+
+    border-radius: 14px;
+
+    background: rgba(255, 255, 255, 0.18);
+
+    border: 1px solid rgba(255, 255, 255, 0.25);
+
+    backdrop-filter: blur(6px);
+
+    box-shadow:
+        0 4px 12px rgba(0, 0, 0, 0.12);
+}
+
+
+/* ==================== COLOR DOTS ==================== */
+
+.note .color-picker .color-btn {
+
+    width: 18px;
+    height: 18px;
+
+    min-width: 18px;
+    min-height: 18px;
+
+    padding: 0;
+
+    border-radius: 50%;
+
+    border: 2px solid rgba(255, 255, 255, 0.75);
+
+    cursor: pointer;
+
+    transition:
+        transform 0.18s ease,
+        box-shadow 0.18s ease;
+}
+
+
+/* ==================== COLOR HOVER ==================== */
+
+.note .color-picker .color-btn:hover {
+
+    transform: scale(1.25);
+
+    box-shadow:
+        0 0 8px rgba(255, 255, 255, 0.45);
+}
+
+
+/* ==================== COLOR PRESS ==================== */
+
+.note .color-picker .color-btn:active {
+
+    transform: scale(1.05);
+
+}
+
+/* ==================== PREMIUM NOTE INPUTS ==================== */
+
+.note .note-title,
+.note .note-text,
+.note .note-tag {
+
+    border: 1px solid rgba(255, 255, 255, 0.18);
+
+    background: rgba(255, 255, 255, 0.12);
+
+    border-radius: 12px;
+
+    transition:
+        border-color 0.2s ease,
+        box-shadow 0.2s ease,
+        background 0.2s ease;
+}
+
+
+/* ==================== TITLE ==================== */
+
+.note .note-title {
+
+    font-size: 18px;
+    font-weight: 700;
+}
+
+
+/* ==================== TEXT ==================== */
+
+.note .note-text {
+
+    line-height: 1.6;
+    resize: vertical;
+}
+
+
+/* ==================== TAG ==================== */
+
+.note .note-tag {
+
+    font-size: 13px;
+}
+
+
+/* ==================== INPUT FOCUS ==================== */
+
+.note .note-title:focus,
+.note .note-text:focus,
+.note .note-tag:focus {
+
+    outline: none;
+
+    border-color: rgba(255, 255, 255, 0.65);
+
+    background: rgba(255, 255, 255, 0.18);
+
+    box-shadow:
+        0 0 10px rgba(255, 255, 255, 0.16);
+}
+
+
+/* ==================== PLACEHOLDER ==================== */
+
+.note .note-title::placeholder,
+.note .note-text::placeholder,
+.note .note-tag::placeholder {
+
+    opacity: 0.65;
+}
+
+/* ==================== NOTE CONTENT SPACING ==================== */
+
+.note {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+
+/* ==================== NOTE TITLE ==================== */
+
+.note .note-title {
+    margin-top: 4px;
+    margin-bottom: 0;
+}
+
+
+/* ==================== NOTE TEXT ==================== */
+
+.note .note-text {
+    margin: 0;
+    min-height: 110px;
+}
+
+
+/* ==================== NOTE TAG ==================== */
+
+.note .note-tag {
+    margin-top: 2px;
+}
+
+
+/* ==================== ACTION AREA ALIGNMENT ==================== */
+
+.note .pin-note,
+.note .delete-note {
+    position: absolute;
+    top: 14px;
+}
+
+.note .pin-note {
+    right: 54px;
+}
+
+.note .delete-note {
+    right: 14px;
+}
+
+/* ==================== MOBILE NOTE CARDS ==================== */
+
+@media (max-width: 600px) {
+
+    .notes-container {
+        grid-template-columns: 1fr;
+        gap: 16px;
+    }
+
+    .note {
+        width: 100%;
+        box-sizing: border-box;
+    }
+
+    .note .note-title {
+        font-size: 17px;
+    }
+
+    .note .note-text {
+        min-height: 120px;
+    }
+
+    .note .pin-note,
+    .note .delete-note {
+        top: 12px;
+    }
+
+    .note .pin-note {
+        right: 50px;
+    }
+
+    .note .delete-note {
+        right: 12px;
+    }
+
+    .note .color-picker {
+        gap: 7px;
+    }
+
+    .note .color-picker .color-btn {
+        width: 19px;
+        height: 19px;
+    }
+}
+
+/* ==================== PREMIUM QUICK MENU ==================== */
+
+.quick-menu {
+
+    padding: 10px;
+
+    border-radius: 18px;
+
+    background: rgba(20, 20, 25, 0.88);
+
+    border: 1px solid rgba(255, 255, 255, 0.16);
+
+    backdrop-filter: blur(14px);
+
+    box-shadow:
+        0 15px 35px rgba(0, 0, 0, 0.28),
+        0 0 20px rgba(255, 255, 255, 0.05);
+
+    animation: quickMenuIn 0.2s ease;
+}
+
+
+/* ==================== MENU BUTTONS ==================== */
+
+.quick-menu button {
+
+    width: 100%;
+
+    padding: 11px 13px;
+
+    margin: 3px 0;
+
+    border: none;
+
+    border-radius: 12px;
+
+    background: transparent;
+
+    color: inherit;
+
+    text-align: left;
+
+    cursor: pointer;
+
+    transition:
+        background 0.18s ease,
+        transform 0.18s ease,
+        box-shadow 0.18s ease;
+}
+
+
+/* ==================== MENU HOVER ==================== */
+
+.quick-menu button:hover {
+
+    background: rgba(255, 255, 255, 0.12);
+
+    transform: translateX(3px);
+
+    box-shadow:
+        0 0 10px rgba(255, 255, 255, 0.06);
+}
+
+
+/* ==================== MENU ANIMATION ==================== */
+
+@keyframes quickMenuIn {
+
+    from {
+        opacity: 0;
+        transform: translateY(-6px) scale(0.97);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+
+}
+
+/* ==================== QUICK MENU TEXT FIX ==================== */
+
+.quick-menu button {
+    color: #ffffff !important;
+    background: transparent !important;
+}
+
+.quick-menu button:hover {
+    color: #111111 !important;
+    background: #ffffff !important;
+}
+
+/* ==================== PREMIUM QUICK MENU BUTTON ==================== */
+
+#quickMenuBtn {
+
+    width: 42px;
+    height: 42px;
+
+    padding: 0 !important;
+
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 14px !important;
+
+    border: 1px solid rgba(255, 255, 255, 0.18) !important;
+
+    background: rgba(255, 255, 255, 0.10) !important;
+
+    backdrop-filter: blur(8px);
+
+    font-size: 20px;
+
+    transition:
+        transform 0.2s ease,
+        background 0.2s ease,
+        box-shadow 0.2s ease;
+}
+
+
+/* ==================== QUICK BUTTON HOVER ==================== */
+
+#quickMenuBtn:hover {
+
+    background: white !important;
+
+    color: #111 !important;
+
+    transform: translateY(-2px) rotate(8deg);
+
+    box-shadow:
+        0 0 12px rgba(255, 255, 255, 0.25),
+        0 6px 16px rgba(0, 0, 0, 0.18);
+}
+
+
+/* ==================== QUICK BUTTON PRESS ==================== */
+
+#quickMenuBtn:active {
+
+    transform: translateY(1px) scale(0.94);
+
+}
+
+/* ==================== PREMIUM ABOUT NOTEX ==================== */
+
+.about-box {
+
+    width: min(360px, calc(100% - 32px));
+
+    padding: 28px 24px;
+
+    border-radius: 22px;
+
+    background: rgba(25, 25, 30, 0.92);
+
+    border: 1px solid rgba(255, 255, 255, 0.16);
+
+    backdrop-filter: blur(14px);
+
+    box-shadow:
+        0 20px 50px rgba(0, 0, 0, 0.35),
+        0 0 25px rgba(255, 255, 255, 0.06);
+
+    animation: aboutModalIn 0.22s ease;
+}
+
+
+/* ==================== ABOUT ICON ==================== */
+
+.about-icon {
+
+    width: 64px;
+    height: 64px;
+
+    margin: 0 auto 14px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 18px;
+
+    background: rgba(255, 255, 255, 0.10);
+
+    border: 1px solid rgba(255, 255, 255, 0.16);
+
+    font-size: 30px;
+
+    box-shadow:
+        0 8px 20px rgba(0, 0, 0, 0.18);
+}
+
+
+/* ==================== ABOUT TEXT ==================== */
+
+.about-box h2 {
+    margin-bottom: 6px;
+}
+
+.about-version {
+    opacity: 0.65;
+    font-size: 13px;
+}
+
+.about-description {
+    font-weight: 600;
+}
+
+.about-text {
+    line-height: 1.6;
+    opacity: 0.78;
+}
+
+
+/* ==================== ABOUT DIVIDER ==================== */
+
+.about-divider {
+
+    width: 70%;
+
+    height: 1px;
+
+    margin: 18px auto;
+
+    background: rgba(255, 255, 255, 0.15);
+}
+
+
+/* ==================== ABOUT CLOSE BUTTON ==================== */
+
+#closeAbout {
+
+    transition:
+        transform 0.18s ease,
+        background 0.18s ease;
+}
+
+#closeAbout:hover {
+
+    background: white !important;
+
+    color: #111 !important;
+
+    transform: rotate(90deg);
+}
+
+
+/* ==================== ABOUT ANIMATION ==================== */
+
+@keyframes aboutModalIn {
+
+    from {
+        opacity: 0;
+        transform: translateY(10px) scale(0.96);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+
+}
+
+/* ==================== ABOUT NOTEX - COLORFUL 3D ==================== */
+
+.about-box {
+
+    background: rgba(255, 255, 255, 0.92) !important;
+
+    color: #222 !important;
+
+    border: 1px solid rgba(255, 255, 255, 0.8) !important;
+
+    box-shadow:
+        0 20px 45px rgba(0, 0, 0, 0.22),
+        0 8px 20px rgba(0, 0, 0, 0.12) !important;
+
+    backdrop-filter: blur(12px);
+
+    transform: translateY(0);
+}
+
+
+/* ==================== ABOUT ICON ==================== */
+
+.about-icon {
+
+    background: linear-gradient(
+        135deg,
+        #fff4a8,
+        #ffd86b
+    ) !important;
+
+    border: none !important;
+
+    box-shadow:
+        0 8px 18px rgba(0, 0, 0, 0.15) !important;
+
+    transform: rotate(-3deg);
+}
+
+
+/* ==================== ABOUT TITLE ==================== */
+
+.about-box h2 {
+
+    color: #222 !important;
+}
+
+.about-version {
+
+    color: #777 !important;
+}
+
+.about-description {
+
+    color: #333 !important;
+}
+
+.about-text {
+
+    color: #555 !important;
+}
+
+
+/* ==================== ABOUT DIVIDER ==================== */
+
+.about-divider {
+
+    background: rgba(0, 0, 0, 0.12) !important;
+}
+
+
+/* ==================== ABOUT FOOTER ==================== */
+
+.about-footer {
+
+    color: #555 !important;
+}
+
+
+/* ==================== CLOSE BUTTON ==================== */
+
+#closeAbout {
+
+    color: #333 !important;
+
+    background: rgba(0, 0, 0, 0.06) !important;
+
+    border-radius: 10px;
+}
+
+#closeAbout:hover {
+
+    background: #222 !important;
+
+    color: white !important;
+}
+
+/* ==================== PREMIUM SETTINGS MODAL ==================== */
+
+.settings-box {
+
+    width: min(380px, calc(100% - 32px));
+
+    padding: 26px 22px;
+
+    border-radius: 22px;
+
+    background: rgba(255, 255, 255, 0.94) !important;
+
+    color: #222 !important;
+
+    border: 1px solid rgba(255, 255, 255, 0.85);
+
+    box-shadow:
+        0 20px 45px rgba(0, 0, 0, 0.22),
+        0 8px 20px rgba(0, 0, 0, 0.10);
+
+    backdrop-filter: blur(12px);
+
+    animation: settingsModalIn 0.22s ease;
+}
+
+
+/* ==================== SETTINGS TITLE ==================== */
+
+.settings-box h2 {
+
+    margin-bottom: 18px;
+
+    color: #222 !important;
+}
+
+
+/* ==================== SETTINGS OPTIONS ==================== */
+
+.settings-option {
+
+    padding: 14px;
+
+    margin: 10px 0;
+
+    border-radius: 15px;
+
+    background: rgba(0, 0, 0, 0.045);
+
+    border: 1px solid rgba(0, 0, 0, 0.06);
+
+    transition:
+        transform 0.2s ease,
+        background 0.2s ease,
+        box-shadow 0.2s ease;
+}
+
+
+/* ==================== OPTION HOVER ==================== */
+
+.settings-option:hover {
+
+    transform: translateY(-2px);
+
+    background: rgba(255, 255, 255, 0.85);
+
+    box-shadow:
+        0 7px 16px rgba(0, 0, 0, 0.10);
+}
+
+
+/* ==================== SETTINGS TEXT ==================== */
+
+.settings-option strong {
+
+    color: #222 !important;
+}
+
+.settings-option p {
+
+    color: #666 !important;
+
+    margin: 5px 0 0;
+}
+
+
+/* ==================== CLEAR BUTTON ==================== */
+
+#clearAllNotesBtn {
+
+    margin-top: 8px;
+
+    padding: 9px 13px;
+
+    border: none;
+
+    border-radius: 10px;
+
+    background: rgba(255, 70, 70, 0.10);
+
+    color: #d33;
+
+    cursor: pointer;
+
+    transition:
+        transform 0.18s ease,
+        background 0.18s ease;
+}
+
+#clearAllNotesBtn:hover {
+
+    background: #d33;
+
+    color: white;
+
+    transform: translateY(-1px);
+}
+
+
+/* ==================== CLOSE SETTINGS ==================== */
+
+#closeSettings {
+
+    transition:
+        transform 0.18s ease,
+        background 0.18s ease;
+}
+
+#closeSettings:hover {
+
+    background: #222 !important;
+
+    color: white !important;
+
+    transform: rotate(90deg);
+}
+
+
+/* ==================== SETTINGS ANIMATION ==================== */
+
+@keyframes settingsModalIn {
+
+    from {
+        opacity: 0;
+        transform: translateY(10px) scale(0.96);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+
+}
+
+/* ==================== PREMIUM DARK MODE ==================== */
+
+.dark-mode {
+
+    background:
+        radial-gradient(
+            circle at top,
+            #242424 0%,
+            #111 45%,
+            #090909 100%
+        );
+
+    color: #f5f5f5;
+}
+
+
+/* ==================== DARK MODE HEADER ==================== */
+
+.dark-mode .header {
+
+    background: rgba(20, 20, 20, 0.72);
+
+    border-color: rgba(255, 255, 255, 0.10);
+
+    box-shadow:
+        0 8px 25px rgba(0, 0, 0, 0.30);
+}
+
+
+/* ==================== DARK MODE SEARCH ==================== */
+
+.dark-mode .search-box input {
+
+    background: rgba(255, 255, 255, 0.07);
+
+    color: white;
+
+    border-color: rgba(255, 255, 255, 0.14);
+}
+
+.dark-mode .search-box input::placeholder {
+
+    color: rgba(255, 255, 255, 0.55);
+}
+
+
+/* ==================== DARK MODE COUNTER ==================== */
+
+.dark-mode #noteCounter {
+
+    background: rgba(255, 255, 255, 0.07);
+
+    border-color: rgba(255, 255, 255, 0.12);
+}
+
+
+/* ==================== DARK MODE NOTE CARDS ==================== */
+
+.dark-mode .note {
+
+    box-shadow:
+        0 12px 30px rgba(0, 0, 0, 0.40);
+}
+
+
+/* ==================== DARK MODE NOTE INPUTS ==================== */
+
+.dark-mode .note .note-title,
+.dark-mode .note .note-text,
+.dark-mode .note .note-tag {
+
+    color: white;
+
+    background: rgba(0, 0, 0, 0.16);
+
+    border-color: rgba(255, 255, 255, 0.16);
+}
+
+.dark-mode .note input::placeholder,
+.dark-mode .note textarea::placeholder {
+
+    color: rgba(255, 255, 255, 0.55);
+}
+
+
+/* ==================== DARK MODE QUICK MENU ==================== */
+
+.dark-mode .quick-menu {
+
+    background: rgba(18, 18, 18, 0.94);
+
+    border-color: rgba(255, 255, 255, 0.12);
+}
+
+
+/* ==================== DARK MODE QUICK MENU HOVER ==================== */
+
+.dark-mode .quick-menu button:hover {
+
+    background: white !important;
+
+    color: #111 !important;
+}
+
+/* ==================== PREMIUM TAG FILTER ==================== */
+
+.tag-filter-box {
+    width: min(420px, calc(100% - 32px));
+    margin: 10px auto 18px;
+    display: flex;
+    justify-content: center;
+}
+
+#tagFilter {
+    width: 100%;
+    padding: 12px 42px 12px 15px;
+    border-radius: 14px;
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    background: rgba(255, 255, 255, 0.10);
+    color: inherit;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    outline: none;
+    backdrop-filter: blur(10px);
+    box-shadow:
+        0 6px 18px rgba(0, 0, 0, 0.10);
+    transition:
+        transform 0.2s ease,
+        border-color 0.2s ease,
+        box-shadow 0.2s ease,
+        background 0.2s ease;
+}
+
+#tagFilter:hover {
+    transform: translateY(-2px);
+    border-color: rgba(255, 255, 255, 0.35);
+    box-shadow:
+        0 9px 22px rgba(0, 0, 0, 0.14),
+        0 0 14px rgba(255, 255, 255, 0.06);
+}
+
+#tagFilter:focus {
+    border-color: rgba(255, 255, 255, 0.65);
+    box-shadow:
+        0 0 12px rgba(255, 255, 255, 0.15);
+}
+
+/* ==================== TAG FILTER OPTIONS ==================== */
+
+#tagFilter option {
+    background: #222;
+    color: white;
+}
+
+/* ==================== MOBILE TAG FILTER ==================== */
+
+@media (max-width: 600px) {
+
+    .tag-filter-box {
+        width: calc(100% - 32px);
+        margin-top: 8px;
+        margin-bottom: 16px;
+    }
+
+    #tagFilter {
+        padding: 11px 38px 11px 13px;
+        font-size: 13px;
+    }
+
+}
+
+/* ==================== PREMIUM COPY BUTTON ==================== */
+
+.note .copy-note {
+    position: absolute;
+    top: 14px;
+    right: 94px;
+
+    width: 34px;
+    height: 34px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    padding: 0;
+    border-radius: 12px;
+
+    border: 1px solid rgba(255, 255, 255, 0.28);
+    background: rgba(255, 255, 255, 0.18);
+
+    backdrop-filter: blur(6px);
+
+    font-size: 15px;
+    cursor: pointer;
+
+    box-shadow:
+        0 4px 10px rgba(0, 0, 0, 0.15);
+
+    transition:
+        transform 0.18s ease,
+        background 0.18s ease,
+        box-shadow 0.18s ease;
+}
+
+.note .copy-note:hover {
+    background: rgba(255, 255, 255, 0.75);
+
+    transform:
+        translateY(-2px)
+        scale(1.05);
+
+    box-shadow:
+        0 6px 14px rgba(0, 0, 0, 0.18),
+        0 0 12px rgba(255, 255, 255, 0.25);
+}
+
+.note .copy-note:active {
+    transform: translateY(1px) scale(0.96);
+}
+
+/* ==================== MOBILE COPY BUTTON ==================== */
+
+@media (max-width: 600px) {
+
+    .note .copy-note {
+        top: 12px;
+        right: 90px;
+
+        width: 32px;
+        height: 32px;
+
+        border-radius: 11px;
+        font-size: 14px;
+    }
+
+}
+
+/* ==================== 2 COLUMN NOTE FIX ==================== */
+
+.notes-container.two-columns .note {
+    padding-top: 58px;
+}
+
+.notes-container.two-columns .note .color-picker {
+    position: relative;
+    z-index: 2;
+}
+
+.notes-container.two-columns .note .copy-note {
+    z-index: 5;
+}
+
+.notes-container.two-columns .note .pin-note {
+    z-index: 5;
+}
+
+.notes-container.two-columns .note .delete-note {
+    z-index: 5;
+}
+
+/* ==================== 2 COLUMN ACTION SPACING ==================== */
+
+.notes-container.two-columns .note .copy-note {
+    right: 94px;
+}
+
+.notes-container.two-columns .note .pin-note {
+    right: 54px;
+}
+
+.notes-container.two-columns .note .delete-note {
+    right: 14px;
+}
+

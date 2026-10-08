@@ -1,0 +1,2031 @@
+/* =========================================================
+   NOXI AI — CLEAN PREMIUM UI SYSTEM
+   Lightweight • Smooth • Responsive
+   ========================================================= */
+
+
+/* =========================================================
+   GLOBAL RESET
+   ========================================================= */
+
+   * {
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: auto;
+}
+
+body {
+    margin: 0;
+    min-height: 100vh;
+
+    font-family:
+        Inter,
+        "Segoe UI",
+        Arial,
+        sans-serif;
+
+    background:
+        radial-gradient(
+            circle at 50% -20%,
+            rgba(0, 217, 255, 0.07),
+            transparent 35%
+        ),
+        radial-gradient(
+            circle at 90% 90%,
+            rgba(0, 255, 136, 0.035),
+            transparent 30%
+        ),
+        #070b11;
+
+    color: #e8eef5;
+
+    overflow-x: hidden;
+}
+
+
+/* =========================================================
+   NOXI CONTAINER
+   ========================================================= */
+
+.noxi-container {
+    position: relative;
+
+    width: min(94%, 920px);
+
+    margin: 0 auto;
+
+    padding:
+        48px 0
+        40px;
+
+    text-align: center;
+}
+
+
+/* =========================================================
+   HEADER
+   ========================================================= */
+
+.noxi-header {
+    position: relative;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    gap: 14px;
+
+    margin-bottom: 26px;
+}
+
+
+/* =========================================================
+   SIDEBAR TOGGLE
+   ========================================================= */
+
+.sidebar-toggle {
+    position: fixed;
+
+    left: 14px;
+    top: 16px;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    width: 40px;
+    height: 40px;
+
+    border:
+        1px solid
+        rgba(100, 120, 145, 0.22);
+
+    border-radius: 11px;
+
+    background:
+        rgba(13, 21, 30, 0.92);
+
+    color: #cbd5e1;
+
+    font-size: 19px;
+
+    cursor: pointer;
+
+    z-index: 998;
+
+    box-shadow:
+        0 6px 20px
+        rgba(0, 0, 0, 0.18);
+
+    transition:
+        background-color 0.18s ease,
+        border-color 0.18s ease,
+        color 0.18s ease,
+        box-shadow 0.18s ease;
+}
+
+.sidebar-toggle:hover {
+    background: #172431;
+
+    border-color:
+        rgba(0, 217, 255, 0.25);
+
+    color: #ffffff;
+
+    box-shadow:
+        0 6px 20px
+        rgba(0, 0, 0, 0.24);
+}
+
+
+/* =========================================================
+   NOXI LOGO
+   ========================================================= */
+
+.noxi-logo {
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    width: 48px;
+    height: 48px;
+
+    border-radius: 15px;
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(0, 255, 136, 0.12),
+            rgba(0, 217, 255, 0.10)
+        );
+
+    border:
+        1px solid
+        rgba(125, 211, 252, 0.18);
+
+    box-shadow:
+        0 0 22px
+        rgba(0, 217, 255, 0.06),
+
+        inset 0 1px 0
+        rgba(255, 255, 255, 0.04);
+
+    font-size: 26px;
+
+    animation:
+        noxiLogoFloat
+        4s
+        ease-in-out
+        infinite;
+}
+
+@keyframes noxiLogoFloat {
+
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-2px);
+    }
+}
+
+
+/* =========================================================
+   NOXI TITLE
+   ========================================================= */
+
+.noxi-title h1 {
+    margin: 0;
+
+    font-size:
+        clamp(30px, 5vw, 40px);
+
+    font-weight: 800;
+
+    letter-spacing: -0.8px;
+
+    background:
+        linear-gradient(
+            90deg,
+            #00ff88,
+            #00d9ff 50%,
+            #a855f7
+        );
+
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+
+    background-clip: text;
+}
+
+.noxi-title p {
+    margin: 4px 0 0;
+
+    color: #718092;
+
+    font-size: 13px;
+
+    letter-spacing: 0.2px;
+}
+
+
+/* =========================================================
+   CHAT BOX
+   ========================================================= */
+
+.chat-box {
+    position: relative;
+
+    display: flex;
+
+    flex-direction: column;
+
+    height: 70vh;
+
+    min-height: 430px;
+    max-height: 680px;
+
+    overflow: hidden;
+
+    border:
+        1px solid
+        rgba(100, 120, 145, 0.18);
+
+    border-radius: 24px;
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(15, 23, 33, 0.97),
+            rgba(8, 13, 20, 0.99)
+        );
+
+    box-shadow:
+        0 20px 50px
+        rgba(0, 0, 0, 0.32),
+
+        inset 0 1px 0
+        rgba(255, 255, 255, 0.025);
+}
+
+
+/* =========================================================
+   CHAT TOP GLOW
+   ========================================================= */
+
+.chat-box::before {
+    content: "";
+
+    position: absolute;
+
+    top: 0;
+    left: 15%;
+
+    width: 70%;
+    height: 1px;
+
+    background:
+        linear-gradient(
+            90deg,
+            transparent,
+            rgba(0, 217, 255, 0.40),
+            transparent
+        );
+
+    opacity: 0.7;
+
+    pointer-events: none;
+}
+
+
+/* =========================================================
+   CHAT MESSAGES
+   ========================================================= */
+
+.chat-messages {
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 12px;
+
+    flex: 1;
+
+    overflow-y: auto;
+
+    padding: 22px;
+
+    scrollbar-width: thin;
+
+    scrollbar-color:
+        #344252
+        transparent;
+}
+
+
+/* =========================================================
+   MESSAGE BUBBLES
+   ========================================================= */
+
+.chat-messages p {
+    width: fit-content;
+
+    max-width: 78%;
+
+    margin: 0;
+
+    padding:
+        13px 16px;
+
+    border-radius: 17px;
+
+    line-height: 1.6;
+
+    word-wrap: break-word;
+
+    border:
+        1px solid
+        rgba(100, 120, 145, 0.17);
+
+    font-size: 14px;
+
+    animation:
+        noxiMessageIn
+        0.20s
+        ease
+        both;
+}
+
+@keyframes noxiMessageIn {
+
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+
+/* =========================================================
+   USER MESSAGE
+   ========================================================= */
+
+.user-message {
+    align-self: flex-end;
+
+    color: #f1f7fb;
+
+    background:
+        linear-gradient(
+            145deg,
+            #172331,
+            #111b27
+        );
+
+    border-color:
+        rgba(125, 211, 252, 0.14);
+
+    border-bottom-right-radius: 6px;
+
+    box-shadow:
+        0 4px 14px
+        rgba(0, 0, 0, 0.13);
+}
+
+
+/* =========================================================
+   NOXI MESSAGE
+   ========================================================= */
+
+.noxi-message {
+    align-self: flex-start;
+
+    color: #d7e0e9;
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(17, 27, 39, 0.97),
+            rgba(12, 20, 29, 0.97)
+        );
+
+    border-color:
+        rgba(0, 217, 255, 0.09);
+
+    border-bottom-left-radius: 6px;
+
+    box-shadow:
+        0 4px 15px
+        rgba(0, 0, 0, 0.10);
+}
+
+
+/* =========================================================
+   NOXI MESSAGE TEXT
+   ========================================================= */
+
+.noxi-message strong {
+    color: #ffffff;
+
+    font-weight: 700;
+}
+
+.noxi-message h2,
+.noxi-message h3 {
+    margin:
+        9px 0;
+
+    color: #edf5fa;
+}
+
+.noxi-message ul {
+    margin: 9px 0;
+
+    padding-left: 21px;
+}
+
+.noxi-message li {
+    margin: 5px 0;
+}
+
+
+/* =========================================================
+   TYPING MESSAGE
+   ========================================================= */
+
+.typing-message {
+    display: flex;
+
+    align-items: center;
+
+    gap: 8px;
+
+    opacity: 0.75;
+}
+
+
+/* =========================================================
+   TYPING DOTS
+   ========================================================= */
+
+.typing-dots {
+    display: inline-flex;
+
+    align-items: center;
+
+    gap: 4px;
+}
+
+.typing-dots span {
+    width: 5px;
+    height: 5px;
+
+    border-radius: 50%;
+
+    background: #7f91a3;
+
+    animation:
+        noxiTyping
+        1.2s
+        infinite
+        ease-in-out;
+}
+
+.typing-dots span:nth-child(2) {
+    animation-delay: 0.15s;
+}
+
+.typing-dots span:nth-child(3) {
+    animation-delay: 0.30s;
+}
+
+@keyframes noxiTyping {
+
+    0%,
+    60%,
+    100% {
+        opacity: 0.3;
+
+        transform:
+            translateY(0);
+    }
+
+    30% {
+        opacity: 1;
+
+        transform:
+            translateY(-3px);
+    }
+}
+
+
+/* =========================================================
+   CHAT INPUT AREA
+   ========================================================= */
+
+.chat-input-area {
+    display: flex;
+
+    align-items: center;
+
+    gap: 9px;
+
+    margin:
+        0 16px
+        16px;
+
+    padding: 7px;
+
+    border:
+        1px solid
+        rgba(100, 120, 145, 0.20);
+
+    border-radius: 16px;
+
+    background:
+        rgba(8, 14, 21, 0.94);
+
+    box-shadow:
+        inset 0 1px 0
+        rgba(255, 255, 255, 0.025),
+
+        0 6px 20px
+        rgba(0, 0, 0, 0.14);
+
+    transition:
+        border-color 0.18s ease,
+        box-shadow 0.18s ease;
+}
+
+.chat-input-area:focus-within {
+    border-color:
+        rgba(0, 217, 255, 0.28);
+
+    box-shadow:
+        0 0 0 3px
+        rgba(0, 217, 255, 0.03),
+
+        inset 0 1px 0
+        rgba(255, 255, 255, 0.025);
+}
+
+
+/* =========================================================
+   INPUT
+   ========================================================= */
+
+#userInput {
+    flex: 1;
+
+    min-width: 0;
+
+    padding:
+        12px 13px;
+
+    border: none;
+
+    outline: none;
+
+    background: transparent;
+
+    color: #e1e9f0;
+
+    font-family: inherit;
+
+    font-size: 14px;
+}
+
+#userInput::placeholder {
+    color: #627080;
+
+    transition:
+        color 0.18s ease;
+}
+
+#userInput:focus::placeholder {
+    color: #7c8997;
+}
+
+
+/* =========================================================
+   SEND BUTTON
+   ========================================================= */
+
+#sendBtn {
+    min-width: 78px;
+
+    padding:
+        10px 17px;
+
+    border:
+        1px solid
+        rgba(125, 211, 252, 0.16);
+
+    border-radius: 11px;
+
+    background:
+        linear-gradient(
+            145deg,
+            #182735,
+            #121e2a
+        );
+
+    color: #dce9f2;
+
+    font-size: 13px;
+
+    font-weight: 700;
+
+    cursor: pointer;
+
+    transition:
+        background-color 0.18s ease,
+        border-color 0.18s ease,
+        color 0.18s ease,
+        box-shadow 0.18s ease;
+}
+
+#sendBtn:hover {
+    border-color:
+        rgba(0, 217, 255, 0.35);
+
+    background:
+        linear-gradient(
+            145deg,
+            #1d3342,
+            #162634
+        );
+
+    box-shadow:
+        0 4px 14px
+        rgba(0, 217, 255, 0.06);
+}
+
+
+/* =========================================================
+   EXPLAIN UNTIL IT CLICKS
+   ========================================================= */
+
+.click-understand-btn {
+    align-self: flex-start;
+
+    display: inline-flex;
+
+    align-items: center;
+    justify-content: center;
+
+    margin:
+        -3px 0 4px;
+
+    padding:
+        8px 13px;
+
+    border:
+        1px solid
+        rgba(125, 211, 252, 0.14);
+
+    border-radius: 10px;
+
+    background:
+        rgba(17, 27, 39, 0.82);
+
+    color: #8fa4b5;
+
+    font-size: 12px;
+
+    font-weight: 600;
+
+    cursor: pointer;
+
+    transition:
+        background-color 0.18s ease,
+        border-color 0.18s ease,
+        color 0.18s ease,
+        box-shadow 0.18s ease;
+}
+
+.click-understand-btn:hover {
+    color: #d9edf5;
+
+    border-color:
+        rgba(0, 217, 255, 0.28);
+
+    background:
+        rgba(19, 34, 47, 0.96);
+
+    box-shadow:
+        0 4px 14px
+        rgba(0, 217, 255, 0.05);
+}
+
+
+/* =========================================================
+   SCROLLBAR
+   ========================================================= */
+
+.chat-messages::-webkit-scrollbar,
+.sidebar-chat-list::-webkit-scrollbar {
+    width: 6px;
+}
+
+.chat-messages::-webkit-scrollbar-track,
+.sidebar-chat-list::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+.chat-messages::-webkit-scrollbar-thumb,
+.sidebar-chat-list::-webkit-scrollbar-thumb {
+    background: #2b3948;
+
+    border-radius: 20px;
+}
+
+.chat-messages::-webkit-scrollbar-thumb:hover,
+.sidebar-chat-list::-webkit-scrollbar-thumb:hover {
+    background: #3d4d5e;
+}
+
+
+/* =========================================================
+   SIDEBAR
+   ========================================================= */
+
+.noxi-sidebar {
+    position: fixed;
+
+    top: 0;
+    left: 0;
+
+    width: 310px;
+    height: 100vh;
+
+    padding: 20px;
+
+    background:
+        linear-gradient(
+            160deg,
+            rgba(12, 20, 29, 0.99),
+            rgba(7, 12, 18, 1)
+        );
+
+    border-right:
+        1px solid
+        rgba(100, 120, 145, 0.18);
+
+    box-shadow:
+        20px 0 45px
+        rgba(0, 0, 0, 0.30);
+
+    transform:
+        translateX(-100%);
+
+    transition:
+        transform 0.28s
+        cubic-bezier(0.22, 1, 0.36, 1);
+
+    z-index: 1000;
+}
+
+.noxi-sidebar.open {
+    transform:
+        translateX(0);
+}
+
+
+/* =========================================================
+   SIDEBAR HEADER
+   ========================================================= */
+
+.sidebar-header {
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    margin-bottom: 18px;
+}
+
+.sidebar-header h2 {
+    margin: 0;
+
+    color: #e8eef5;
+
+    font-size: 18px;
+
+    letter-spacing: -0.2px;
+}
+
+
+/* =========================================================
+   CLOSE SIDEBAR
+   ========================================================= */
+
+#closeSidebarBtn {
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    width: 34px;
+    height: 34px;
+
+    border:
+        1px solid
+        #263241;
+
+    border-radius: 9px;
+
+    background: #111a24;
+
+    color: #9aaabd;
+
+    cursor: pointer;
+
+    transition:
+        background-color 0.18s ease,
+        border-color 0.18s ease,
+        color 0.18s ease,
+        box-shadow 0.18s ease;
+}
+
+#closeSidebarBtn:hover {
+    color: #ffffff;
+
+    background: #182532;
+
+    border-color: #3b4c5e;
+
+    box-shadow:
+        0 3px 12px
+        rgba(0, 0, 0, 0.16);
+}
+
+
+/* =========================================================
+   SIDEBAR ACTIONS
+   ========================================================= */
+
+#sidebarNewChatBtn,
+#sidebarShortNotesBtn {
+    width: 100%;
+
+    padding:
+        11px 13px;
+
+    margin-bottom: 8px;
+
+    border:
+        1px solid
+        rgba(100, 120, 145, 0.17);
+
+    border-radius: 11px;
+
+    background:
+        rgba(18, 27, 37, 0.88);
+
+    color: #d7e1ea;
+
+    font-size: 13px;
+
+    font-weight: 600;
+
+    text-align: left;
+
+    cursor: pointer;
+
+    transition:
+        background-color 0.18s ease,
+        border-color 0.18s ease,
+        color 0.18s ease,
+        box-shadow 0.18s ease;
+}
+
+#sidebarNewChatBtn:hover,
+#sidebarShortNotesBtn:hover {
+    background: #182633;
+
+    border-color:
+        rgba(0, 217, 255, 0.20);
+
+    box-shadow:
+        0 4px 14px
+        rgba(0, 0, 0, 0.14);
+}
+
+
+/* =========================================================
+   SIDEBAR CHAT LIST
+   ========================================================= */
+
+.sidebar-chat-list {
+    margin-top: 16px;
+
+    max-height:
+        calc(100vh - 145px);
+
+    overflow-y: auto;
+
+    padding-right: 3px;
+}
+
+
+/* =========================================================
+   RECENT CHAT ITEM
+   ========================================================= */
+
+.recent-chat-item {
+    position: relative;
+
+    padding:
+        11px 44px
+        11px 12px;
+
+    margin-top: 7px;
+
+    border:
+        1px solid
+        rgba(100, 120, 145, 0.13);
+
+    border-radius: 11px;
+
+    background:
+        rgba(15, 24, 34, 0.88);
+
+    color: #dce5ef;
+
+    cursor: pointer;
+
+    transition:
+        background-color 0.18s ease,
+        border-color 0.18s ease,
+        color 0.18s ease,
+        box-shadow 0.18s ease;
+}
+
+.recent-chat-item:hover {
+    background: #15212d;
+
+    border-color:
+        rgba(125, 211, 252, 0.18);
+
+    box-shadow:
+        0 3px 12px
+        rgba(0, 0, 0, 0.10);
+}
+
+
+/* =========================================================
+   ACTIVE CHAT
+   ========================================================= */
+
+.recent-chat-item.active-chat {
+    background:
+        linear-gradient(
+            90deg,
+            rgba(0, 217, 255, 0.08),
+            rgba(15, 27, 39, 0.95)
+        );
+
+    border-color:
+        rgba(125, 211, 252, 0.25);
+
+    box-shadow:
+        inset 3px 0 0 #63d9ff,
+
+        0 4px 16px
+        rgba(0, 217, 255, 0.035);
+}
+
+
+/* =========================================================
+   RECENT CHAT TITLE
+   ========================================================= */
+
+.recent-chat-title {
+    overflow: hidden;
+
+    white-space: nowrap;
+
+    text-overflow: ellipsis;
+
+    font-size: 13px;
+
+    font-weight: 600;
+}
+
+
+/* =========================================================
+   RECENT CHAT DATE
+   ========================================================= */
+
+.recent-chat-date {
+    margin-top: 4px;
+
+    color: #667789;
+
+    font-size: 11px;
+}
+
+
+/* =========================================================
+   DELETE CHAT
+   ========================================================= */
+
+.recent-chat-delete {
+    position: absolute;
+
+    top: 50%;
+    right: 8px;
+
+    transform:
+        translateY(-50%);
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    width: 29px;
+    height: 29px;
+
+    border:
+        1px solid
+        rgba(180, 74, 74, 0.18);
+
+    border-radius: 8px;
+
+    background: #121920;
+
+    color: #7d8995;
+
+    font-size: 15px;
+
+    line-height: 1;
+
+    cursor: pointer;
+
+    transition:
+        background-color 0.18s ease,
+        border-color 0.18s ease,
+        color 0.18s ease,
+        box-shadow 0.18s ease;
+}
+
+.recent-chat-delete:hover {
+    background: #28191c;
+
+    border-color:
+        rgba(255, 107, 107, 0.38);
+
+    color: #ff7777;
+
+    box-shadow:
+        0 3px 10px
+        rgba(0, 0, 0, 0.15);
+}
+
+
+/* =========================================================
+   SIDEBAR OVERLAY
+   ========================================================= */
+
+.sidebar-overlay {
+    position: fixed;
+
+    inset: 0;
+
+    background:
+        rgba(0, 0, 0, 0.58);
+
+    opacity: 0;
+
+    visibility: hidden;
+
+    transition:
+        opacity 0.25s ease,
+        visibility 0.25s ease;
+
+    z-index: 999;
+}
+
+.sidebar-overlay.open {
+    opacity: 1;
+
+    visibility: visible;
+}
+
+
+/* =========================================================
+   SHORT NOTES MODAL
+   ========================================================= */
+
+.short-notes-modal {
+    display: none;
+
+    position: fixed;
+
+    inset: 0;
+
+    align-items: center;
+    justify-content: center;
+
+    padding: 20px;
+
+    background:
+        rgba(0, 0, 0, 0.68);
+
+    z-index: 1100;
+}
+
+
+/* =========================================================
+   SHORT NOTES BOX
+   ========================================================= */
+
+.short-notes-box {
+    width:
+        min(620px, 100%);
+
+    padding: 26px;
+
+    border:
+        1px solid
+        rgba(125, 211, 252, 0.18);
+
+    border-radius: 20px;
+
+    background:
+        linear-gradient(
+            145deg,
+            #111b26,
+            #0b121a
+        );
+
+    color: #dce5ef;
+
+    box-shadow:
+        0 25px 65px
+        rgba(0, 0, 0, 0.42),
+
+        0 0 30px
+        rgba(0, 217, 255, 0.035);
+
+    animation:
+        modalIn
+        0.20s
+        ease
+        both;
+}
+
+@keyframes modalIn {
+
+    from {
+        opacity: 0;
+
+        transform:
+            translateY(8px)
+            scale(0.99);
+    }
+
+    to {
+        opacity: 1;
+
+        transform:
+            translateY(0)
+            scale(1);
+    }
+}
+
+
+/* =========================================================
+   SHORT NOTES TEXTAREA
+   ========================================================= */
+
+#shortNotesInput {
+    width: 100%;
+
+    min-height: 220px;
+
+    margin-top: 14px;
+
+    padding: 15px;
+
+    resize: vertical;
+
+    border:
+        1px solid
+        rgba(100, 120, 145, 0.20);
+
+    border-radius: 13px;
+
+    background: #080f16;
+
+    color: #dce5ef;
+
+    font-family: inherit;
+
+    font-size: 14px;
+
+    line-height: 1.55;
+
+    outline: none;
+
+    transition:
+        border-color 0.18s ease,
+        box-shadow 0.18s ease;
+}
+
+#shortNotesInput:focus {
+    border-color:
+        rgba(0, 217, 255, 0.30);
+
+    box-shadow:
+        0 0 0 3px
+        rgba(0, 217, 255, 0.035);
+}
+
+
+/* =========================================================
+   SHORT NOTES ACTIONS
+   ========================================================= */
+
+.short-notes-actions {
+    display: flex;
+
+    justify-content: flex-end;
+
+    gap: 9px;
+
+    margin-top: 15px;
+}
+
+.short-notes-actions button {
+    padding:
+        10px 16px;
+
+    border:
+        1px solid
+        #293746;
+
+    border-radius: 10px;
+
+    background: #162330;
+
+    color: #dce5ef;
+
+    font-size: 13px;
+
+    font-weight: 600;
+
+    cursor: pointer;
+
+    transition:
+        background-color 0.18s ease,
+        border-color 0.18s ease,
+        color 0.18s ease,
+        box-shadow 0.18s ease;
+}
+
+.short-notes-actions button:hover {
+    background: #1d3141;
+
+    border-color:
+        rgba(0, 217, 255, 0.24);
+
+    box-shadow:
+        0 3px 12px
+        rgba(0, 0, 0, 0.12);
+}
+
+
+/* =========================================================
+   LEGACY TOOL SUPPORT
+   ========================================================= */
+
+.noxi-tools {
+    display: flex;
+
+    justify-content: center;
+    align-items: center;
+
+    gap: 10px;
+
+    margin-bottom: 18px;
+}
+
+.noxi-tools button {
+    padding:
+        10px 16px;
+
+    border:
+        1px solid
+        #263241;
+
+    border-radius: 10px;
+
+    background: #111923;
+
+    color: #dce5ef;
+
+    font-size: 14px;
+
+    font-weight: 600;
+
+    cursor: pointer;
+
+    transition:
+        background-color 0.18s ease,
+        border-color 0.18s ease,
+        color 0.18s ease,
+        box-shadow 0.18s ease;
+}
+
+.noxi-tools button:hover {
+    background: #182633;
+
+    border-color:
+        rgba(0, 217, 255, 0.22);
+
+    box-shadow:
+        0 3px 12px
+        rgba(0, 0, 0, 0.12);
+}
+
+
+/* =========================================================
+   MOBILE EXPERIENCE
+   ========================================================= */
+
+@media (max-width: 600px) {
+
+    /* ==================== CONTAINER ==================== */
+
+    .noxi-container {
+        width: 95%;
+
+        padding:
+            28px 0
+            20px;
+    }
+
+
+    /* ==================== HEADER ==================== */
+
+    .noxi-header {
+        gap: 9px;
+
+        margin-bottom: 18px;
+    }
+
+    .noxi-logo {
+        width: 40px;
+        height: 40px;
+
+        border-radius: 12px;
+
+        font-size: 22px;
+    }
+
+    .noxi-title h1 {
+        font-size: 29px;
+    }
+
+    .noxi-title p {
+        font-size: 11px;
+    }
+
+
+    /* ==================== SIDEBAR TOGGLE ==================== */
+
+    .sidebar-toggle {
+        left: 10px;
+        top: 10px;
+
+        width: 37px;
+        height: 37px;
+    }
+
+
+    /* ==================== CHAT BOX ==================== */
+
+    .chat-box {
+        height: 70vh;
+
+        min-height: 390px;
+
+        border-radius: 19px;
+    }
+
+
+    /* ==================== CHAT MESSAGES ==================== */
+
+    .chat-messages {
+        gap: 9px;
+
+        padding:
+            14px 11px;
+    }
+
+
+    /* ==================== MESSAGE BUBBLES ==================== */
+
+    .chat-messages p {
+        max-width: 90%;
+
+        padding:
+            10px 12px;
+
+        border-radius: 14px;
+
+        font-size: 13.5px;
+
+        line-height: 1.52;
+    }
+
+
+    /* ==================== INPUT ==================== */
+
+    .chat-input-area {
+        margin:
+            0 9px
+            9px;
+
+        padding: 6px;
+
+        border-radius: 14px;
+    }
+
+    #userInput {
+        padding:
+            11px 9px;
+
+        font-size: 13px;
+    }
+
+
+    /* ==================== SEND BUTTON ==================== */
+
+    #sendBtn {
+        min-width: 62px;
+
+        padding:
+            10px 12px;
+
+        border-radius: 10px;
+
+        font-size: 12px;
+    }
+
+
+    /* ==================== EXPLAIN BUTTON ==================== */
+
+    .click-understand-btn {
+        padding:
+            7px 10px;
+
+        margin-bottom: 8px;
+
+        font-size: 11px;
+
+        border-radius: 9px;
+    }
+
+
+    /* ==================== SIDEBAR ==================== */
+
+    .noxi-sidebar {
+        width:
+            min(310px, 86vw);
+
+        padding: 17px;
+    }
+
+
+    /* ==================== SHORT NOTES ==================== */
+
+    .short-notes-box {
+        padding: 19px;
+
+        border-radius: 17px;
+    }
+
+    #shortNotesInput {
+        min-height: 190px;
+    }
+
+    .short-notes-actions button {
+        padding:
+            9px 13px;
+
+        font-size: 12px;
+    }
+
+}
+
+
+/* =========================================================
+   REDUCED MOTION
+   ========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+    *,
+    *::before,
+    *::after {
+        animation-duration:
+            0.01ms !important;
+
+        animation-iteration-count:
+            1 !important;
+
+        transition-duration:
+            0.01ms !important;
+
+        scroll-behavior:
+            auto !important;
+    }
+
+}
+
+/* ==================== LOGOUT BUTTON ==================== */
+
+#logoutBtn {
+    width: 100%;
+    margin-top: 14px;
+    padding: 12px 16px;
+
+    border: 1px solid rgba(255, 80, 120, 0.45);
+    border-radius: 10px;
+
+    background: rgba(255, 60, 100, 0.08);
+    color: #ff6b8a;
+
+    font-size: 14px;
+    font-weight: 600;
+
+    cursor: pointer;
+
+    transition:
+        background 0.2s ease,
+        border-color 0.2s ease,
+        color 0.2s ease,
+        box-shadow 0.2s ease;
+}
+
+
+/* ==================== LOGOUT HOVER ==================== */
+
+#logoutBtn:hover {
+    background: rgba(255, 60, 100, 0.16);
+
+    border-color: rgba(255, 80, 120, 0.75);
+
+    color: #ff8fa8;
+
+    box-shadow:
+        0 0 12px rgba(255, 60, 100, 0.18);
+}
+
+
+/* ==================== LOGOUT ACTIVE ==================== */
+
+#logoutBtn:active {
+    background: rgba(255, 60, 100, 0.22);
+
+    box-shadow: none;
+}
+
+/* ==================== USER PROFILE ==================== */
+
+.user-profile {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+
+    padding: 14px;
+    margin-bottom: 14px;
+
+    border: 1px solid rgba(0, 255, 170, 0.25);
+    border-radius: 12px;
+
+    background: rgba(0, 255, 170, 0.05);
+}
+
+
+/* ==================== PROFILE AVATAR ==================== */
+
+.profile-avatar {
+    width: 42px;
+    height: 42px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    flex-shrink: 0;
+
+    border-radius: 50%;
+
+    background: rgba(0, 255, 170, 0.12);
+
+    font-size: 20px;
+}
+
+
+/* ==================== PROFILE INFO ==================== */
+
+.profile-info {
+    min-width: 0;
+
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+}
+
+
+.profile-name {
+    font-size: 14px;
+    font-weight: 700;
+
+    color: #ffffff;
+}
+
+
+.profile-email {
+    font-size: 11px;
+
+    color: #9aa0aa;
+
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+/* ==================== CHAT ITEM LAYOUT ==================== */
+
+.recent-chat-item {
+    position: relative;
+    padding-right: 42px;
+}
+
+
+/* ==================== CHAT OPTIONS POSITION ==================== */
+
+.chat-options-wrapper {
+    position: absolute;
+    top: 50%;
+    right: 8px;
+
+    margin: 0;
+    transform: translateY(-50%);
+
+    z-index: 50;
+}
+
+/* ==================== THREE DOT BUTTON ==================== */
+
+.chat-options-btn {
+    width: 30px;
+    height: 30px;
+
+    padding: 0;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border: 1px solid rgba(0, 255, 170, 0.18);
+    border-radius: 8px;
+
+    background: rgba(0, 255, 170, 0.04);
+    color: #9aa0aa;
+
+    font-size: 20px;
+    line-height: 1;
+
+    cursor: pointer;
+
+    transition:
+        background 0.18s ease,
+        border-color 0.18s ease,
+        color 0.18s ease,
+        transform 0.18s ease;
+}
+
+.chat-options-btn:hover {
+    background: rgba(0, 255, 170, 0.10);
+    border-color: rgba(0, 255, 170, 0.40);
+    color: #00ffaa;
+
+    transform: scale(1.05);
+}
+
+/* ==================== OPTIONS MENU ==================== */
+
+.chat-options-menu {
+    position: absolute;
+
+    top: calc(100% + 7px);
+    right: 0;
+
+    min-width: 145px;
+
+    padding: 6px;
+
+    border: 1px solid rgba(0, 255, 170, 0.25);
+    border-radius: 12px;
+
+    background: rgba(15, 21, 25, 0.98);
+
+    box-shadow:
+        0 10px 30px rgba(0, 0, 0, 0.55),
+        0 0 18px rgba(0, 255, 170, 0.08);
+
+    backdrop-filter: blur(10px);
+
+    z-index: 100;
+
+    transform-origin: top right;
+
+    animation: chatMenuOpen 0.16s ease-out;
+}
+
+/* ==================== MENU BUTTONS ==================== */
+
+.chat-option-btn {
+    width: 100%;
+
+    display: flex;
+    align-items: center;
+    gap: 9px;
+
+    padding: 9px 11px;
+
+    border: none;
+    border-radius: 8px;
+
+    background: transparent;
+
+    color: #d7dde3;
+
+    font-size: 13px;
+    text-align: left;
+
+    cursor: pointer;
+
+    transition:
+        background 0.15s ease,
+        color 0.15s ease;
+}
+
+.chat-option-btn:hover {
+    background: rgba(0, 255, 170, 0.08);
+    color: #00ffaa;
+}
+
+/* ==================== DELETE OPTION ==================== */
+
+.chat-option-btn.delete-option {
+    color: #ff718c;
+}
+
+.chat-option-btn.delete-option:hover {
+    background: rgba(255, 70, 100, 0.10);
+    color: #ff91a4;
+}
+
+/* ==================== MENU ANIMATION ==================== */
+
+@keyframes chatMenuOpen {
+    from {
+        opacity: 0;
+        transform: translateY(-5px) scale(0.95);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+
+/* ==================== THREE DOT BUTTON ==================== */
+
+.chat-options-btn {
+    width: 28px;
+    height: 28px;
+
+    padding: 0;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border: 1px solid rgba(0, 255, 170, 0.18);
+    border-radius: 8px;
+
+    background: rgba(0, 255, 170, 0.04);
+    color: #9aa0aa;
+
+    font-size: 19px;
+    line-height: 1;
+
+    cursor: pointer;
+}
+
+/* ==================== CHAT ACTION POPUP ==================== */
+
+.chat-action-overlay {
+    position: fixed;
+    inset: 0;
+
+    display: none;
+    align-items: center;
+    justify-content: center;
+
+    background: rgba(0, 0, 0, 0.62);
+    backdrop-filter: blur(6px);
+
+    z-index: 1000;
+}
+
+/* ==================== POPUP BOX ==================== */
+
+.chat-action-popup {
+    width: min(360px, calc(100vw - 32px));
+
+    padding: 24px;
+
+    border: 1px solid rgba(0, 255, 170, 0.28);
+    border-radius: 18px;
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(20, 29, 34, 0.98),
+            rgba(10, 16, 20, 0.98)
+        );
+
+    box-shadow:
+        0 20px 60px rgba(0, 0, 0, 0.65),
+        0 0 30px rgba(0, 255, 170, 0.08);
+
+    animation: chatPopupOpen 0.2s ease-out;
+}
+
+/* ==================== POPUP ICON ==================== */
+
+.chat-action-icon {
+    width: 48px;
+    height: 48px;
+
+    margin: 0 auto 12px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 14px;
+
+    background: rgba(0, 255, 170, 0.08);
+
+    font-size: 22px;
+}
+
+/* ==================== POPUP TITLE ==================== */
+
+.chat-action-popup h3 {
+    margin: 0;
+
+    color: #f1f5f7;
+
+    font-size: 19px;
+    text-align: center;
+}
+
+/* ==================== POPUP TEXT ==================== */
+
+.chat-action-popup p {
+    margin: 7px 0 18px;
+
+    color: #7f8b95;
+
+    font-size: 13px;
+    line-height: 1.5;
+
+    text-align: center;
+}
+
+/* ==================== POPUP INPUT ==================== */
+
+#chatActionInput {
+    width: 100%;
+    box-sizing: border-box;
+
+    padding: 11px 13px;
+
+    border: 1px solid rgba(0, 255, 170, 0.20);
+    border-radius: 10px;
+
+    outline: none;
+
+    background: rgba(0, 255, 170, 0.035);
+    color: #e8f1f3;
+
+    font-size: 14px;
+
+    transition:
+        border-color 0.18s ease,
+        box-shadow 0.18s ease;
+}
+
+#chatActionInput:focus {
+    border-color: rgba(0, 255, 170, 0.55);
+
+    box-shadow:
+        0 0 0 3px rgba(0, 255, 170, 0.07);
+}
+
+#chatActionInput::placeholder {
+    color: #56636d;
+}
+
+/* ==================== POPUP BUTTONS ==================== */
+
+.chat-action-buttons {
+    display: flex;
+    gap: 9px;
+
+    margin-top: 16px;
+}
+
+.chat-action-buttons button {
+    flex: 1;
+
+    padding: 10px 12px;
+
+    border-radius: 10px;
+
+    font-size: 13px;
+    font-weight: 600;
+
+    cursor: pointer;
+
+    transition:
+        transform 0.15s ease,
+        background 0.15s ease;
+}
+
+/* ==================== CANCEL ==================== */
+
+#chatActionCancel {
+    border: 1px solid rgba(255, 255, 255, 0.10);
+
+    background: rgba(255, 255, 255, 0.04);
+
+    color: #9da8b0;
+}
+
+#chatActionCancel:hover {
+    background: rgba(255, 255, 255, 0.08);
+}
+
+/* ==================== CONFIRM ==================== */
+
+#chatActionConfirm {
+    border: 1px solid rgba(0, 255, 170, 0.30);
+
+    background: rgba(0, 255, 170, 0.10);
+
+    color: #00ffaa;
+}
+
+#chatActionConfirm:hover {
+    background: rgba(0, 255, 170, 0.17);
+
+    transform: translateY(-1px);
+}
+
+/* ==================== POPUP ANIMATION ==================== */
+
+@keyframes chatPopupOpen {
+    from {
+        opacity: 0;
+        transform: translateY(10px) scale(0.94);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
