@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>NoteX Login</title>
+
+    <link
+        rel="stylesheet"
+        href="{{ url_for('static', filename='notex-login.css') }}"
+    >
+
+</head>
+
+<body>
+
+    <!-- ==================== LOGIN CARD ==================== -->
+
+    <div class="login-card">
+
+        <div class="notex-logo">
+            📝
+        </div>
+
+        <h1>NoteX</h1>
+
+        <p class="login-subtitle">
+            Your colorful sticky-note space.
+        </p>
+
+        <form id="notexLoginForm">
+
+            <input
+                id="notexEmail"
+                type="email"
+                placeholder="Email"
+                required
+            >
+
+            <input
+                id="notexPassword"
+                type="password"
+                placeholder="Password"
+                required
+            >
+
+            <button
+                id="notexLoginBtn"
+                type="submit"
+            >
+                LOGIN
+            </button>
+
+        </form>
+
+        <button
+            id="notexSignupBtn"
+            type="button"
+        >
+            Create account
+        </button>
+
+        <p id="notexLoginStatus"></p>
+
+    </div>
+
+    <script
+        type="module"
+        src="{{ url_for('static', filename='notex-login.js') }}"
+    ></script>
+
+</body>
+</html>
