@@ -1,0 +1,213 @@
+/* ==================== NOTEX LOGIN PAGE ==================== */
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    min-height: 100vh;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    font-family: Arial, sans-serif;
+
+    background:
+        radial-gradient(
+            circle at top,
+            #fff8d6 0%,
+            #f4f4f4 45%,
+            #e9e9e9 100%
+        );
+
+    color: #222;
+}
+
+/* ==================== LOGIN CARD ==================== */
+
+.login-card {
+    width: min(380px, calc(100% - 32px));
+    padding: 30px 24px;
+
+    text-align: center;
+
+    background: rgba(255, 255, 255, 0.92);
+
+    border: 1px solid rgba(0, 0, 0, 0.08);
+    border-radius: 24px;
+
+    box-shadow:
+        0 20px 45px rgba(0, 0, 0, 0.15);
+
+    animation: loginCardIn 0.45s ease;
+}
+
+/* ==================== LOGO ==================== */
+
+.notex-logo {
+    width: 68px;
+    height: 68px;
+
+    margin: 0 auto 14px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 20px;
+
+    background: linear-gradient(
+        135deg,
+        #fff3a6,
+        #ffd45c
+    );
+
+    font-size: 32px;
+
+    box-shadow:
+        0 8px 18px rgba(0, 0, 0, 0.14);
+
+    transform: rotate(-4deg);
+}
+
+.login-card h1 {
+    margin: 8px 0 5px;
+
+    font-size: 30px;
+}
+
+.login-subtitle {
+    margin: 0 0 24px;
+
+    color: #777;
+    font-size: 14px;
+}
+
+/* ==================== INPUTS ==================== */
+
+#notexLoginForm {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+#notexLoginForm input {
+    width: 100%;
+
+    padding: 13px 14px;
+
+    border: 1px solid rgba(0, 0, 0, 0.12);
+    border-radius: 13px;
+
+    background: rgba(0, 0, 0, 0.035);
+
+    font-size: 14px;
+
+    outline: none;
+
+    transition:
+        border-color 0.2s ease,
+        box-shadow 0.2s ease,
+        transform 0.2s ease;
+}
+
+#notexLoginForm input:focus {
+    border-color: #222;
+
+    box-shadow:
+        0 0 0 3px rgba(0, 0, 0, 0.06);
+
+    transform: translateY(-1px);
+}
+
+/* ==================== LOGIN BUTTON ==================== */
+
+#notexLoginBtn {
+    margin-top: 4px;
+
+    padding: 13px;
+
+    border: none;
+    border-radius: 13px;
+
+    background: #222;
+    color: white;
+
+    font-size: 14px;
+    font-weight: 700;
+
+    cursor: pointer;
+
+    transition:
+        transform 0.2s ease,
+        background 0.2s ease,
+        box-shadow 0.2s ease;
+}
+
+#notexLoginBtn:hover {
+    background: #000;
+
+    transform: translateY(-2px);
+
+    box-shadow:
+        0 8px 18px rgba(0, 0, 0, 0.18);
+}
+
+/* ==================== SIGNUP BUTTON ==================== */
+
+#notexSignupBtn {
+    width: 100%;
+
+    margin-top: 10px;
+    padding: 11px;
+
+    border: 1px solid rgba(0, 0, 0, 0.12);
+    border-radius: 13px;
+
+    background: white;
+    color: #222;
+
+    font-size: 14px;
+    font-weight: 600;
+
+    cursor: pointer;
+
+    transition:
+        background 0.2s ease,
+        transform 0.2s ease;
+}
+
+#notexSignupBtn:hover {
+    background: #f3f3f3;
+
+    transform: translateY(-1px);
+}
+
+/* ==================== STATUS ==================== */
+
+#notexLoginStatus {
+    min-height: 20px;
+
+    margin: 14px 0 0;
+
+    font-size: 13px;
+    color: #d33;
+}
+
+/* ==================== ANIMATION ==================== */
+
+@keyframes loginCardIn {
+
+    from {
+        opacity: 0;
+        transform: translateY(18px) scale(0.97);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+
+}
