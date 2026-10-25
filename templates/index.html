@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>NoteX</title>
+
+    <link
+        rel="manifest"
+        href="{{ url_for('static', filename='manifest.json') }}"
+    >
+
+    <link
+        rel="stylesheet"
+        href="{{ url_for('static', filename='style.css') }}"
+    >
+
+    <link
+        rel="icon"
+        type="image/png"
+        href="{{ url_for('static', filename='icons/icon-192.png') }}"
+    >
+</head>
+
+<body>
+
+    <!-- ==================== HEADER ==================== -->
+
+    <div class="header">
+
+        <h1>NoteX</h1>
+
+        <p>Your colorful sticky-note space.</p>
+
+        <button id="darkModeBtn" type="button">
+            🌙 Dark Mode
+        </button>
+
+        <button id="layoutToggleBtn" type="button">
+            ▦ 2 Columns
+        </button>
+
+        <button id="deletedBtn" type="button">
+            🗑️ Recently Deleted
+        </button>
+
+        <button id="addNoteBtn" type="button">
+            ＋ Add Note
+        </button>
+
+       <!-- ==================== NOXI AI ==================== -->
+
+<button id="hoaxdk" type="button">
+    🤖 Noxi AI
+</button>
+
+        <button id="quickMenuBtn" type="button">
+            ✦
+        </button>
+
+    </div>
+
+
+    <!-- ==================== QUICK MENU ==================== -->
+
+    <div id="quickMenu" class="quick-menu">
+
+        <button id="settingsBtn" type="button">
+            ⚙️ Settings
+        </button>
+
+        <button id="appearanceBtn" type="button">
+            🎨 Appearance
+        </button>
+
+        <button id="quickLayoutBtn" type="button">
+            ▦ Layout
+        </button>
+
+        <button id="quickDeletedBtn" type="button">
+            🗑️ Recently Deleted
+        </button>
+
+        <button id="aboutNoteBtn" type="button">
+            ℹ️ About NoteX
+        </button>
+
+        <button id="notexLogoutBtn" type="button">
+            🚪 Logout
+        </button>
+
+    </div>
+
+
+    <!-- ==================== NOTE COUNTER ==================== -->
+
+    <p id="noteCounter">
+        0 Notes • 0 Pinned
+    </p>
+
+
+    <!-- ==================== SEARCH ==================== -->
+
+    <div class="search-box">
+
+        <input
+            type="text"
+            id="searchInput"
+            placeholder="🔍 Search notes..."
+        >
+
+    </div>
+
+    <!-- ==================== TAG FILTER ==================== -->
+
+<div class="tag-filter-box">
+
+    <select id="tagFilter">
+
+        <option value="all">🏷️ All Tags</option>
+
+    </select>
+
+</div>
+
+   <!-- ==================== NOTES ==================== -->
+
+<div class="notes-container">
+
+    <div class="note yellow">
+        <h3>🟨 Physics</h3>
+        <p>Chapter 2</p>
+    </div>
+
+    <div class="note blue">
+        <h3>🟦 Project</h3>
+        <p>NoteX</p>
+    </div>
+
+    <div class="note green">
+        <h3>🟩 Tasks</h3>
+        <p>Today's tasks</p>
+    </div>
+
+    <div class="note pink">
+        <h3>🩷 Reminder</h3>
+        <p>Important</p>
+    </div>
+
+</div>
+    <!-- ==================== APPEARANCE MODAL ==================== -->
+
+    <div id="appearanceModal" class="appearance-modal">
+
+        <div class="appearance-box">
+
+            <button
+                id="closeAppearance"
+                type="button"
+            >
+                ✕
+            </button>
+
+            <h2>🎨 Appearance</h2>
+
+            <button
+                id="darkThemeOption"
+                type="button"
+            >
+                🌙 Dark Mode
+            </button>
+
+            <button
+                id="lightThemeOption"
+                type="button"
+            >
+                ☀️ Light Mode
+            </button>
+
+        </div>
+
+    </div>
+
+    <!-- ==================== SETTINGS MODAL ==================== -->
+
+<div id="settingsModal" class="settings-modal">
+
+    <div class="settings-box">
+
+        <button id="closeSettings" type="button">✕</button>
+
+        <h2>⚙️ Settings</h2>
+
+        <div class="settings-option">
+            <strong>📝 Notes</strong>
+            <p>Manage your notes and preferences.</p>
+        </div>
+
+        <div class="settings-option">
+            <strong>🎨 Appearance</strong>
+            <p>Change dark or light mode from Appearance.</p>
+        </div>
+
+        <div class="settings-option">
+            <strong>ℹ️ About NoteX</strong>
+            <p>Version 1.0</p>
+        </div>
+
+        <div class="settings-option">
+            <strong>🗑️ Clear All Notes</strong>
+            <p>Delete all your saved notes.</p>
+            <button id="clearAllNotesBtn" type="button">
+                Clear All Notes
+            </button>
+        </div>
+
+    </div>
+
+</div>
+
+<!-- ==================== ABOUT NOTEX MODAL ==================== -->
+
+<div id="aboutModal" class="about-modal">
+
+    <div class="about-box">
+
+        <button id="closeAbout" type="button">✕</button>
+
+        <div class="about-icon">
+            📝
+        </div>
+
+        <h2>About NoteX</h2>
+
+        <p class="about-version">
+            Version 1.0
+        </p>
+
+        <p class="about-description">
+            Your colorful sticky-note space.
+        </p>
+
+        <p class="about-text">
+            NoteX is made for simple, quick and organized
+            note-taking — especially for students.
+        </p>
+
+        <div class="about-divider"></div>
+
+        <p class="about-footer">
+            Made with ❤️ for better notes.
+        </p>
+
+    </div>
+
+</div>
+
+    <!-- ==================== JAVASCRIPT ==================== -->
+
+    <script src="{{ url_for('static', filename='app.js') }}"></script>
+
+    <script
+    type="module"
+    src="{{ url_for('static', filename='notex-auth.js') }}"
+></script>
+
+
+    <!-- ==================== SERVICE WORKER ==================== -->
+
+    <script>
+
+        if ("serviceWorker" in navigator) {
+
+            window.addEventListener("load", function () {
+
+                navigator.serviceWorker.register("/sw.js")
+
+                    .then(function () {
+
+                        console.log(
+                            "NoteX Service Worker registered"
+                        );
+
+                    })
+
+                    .catch(function (error) {
+
+                        console.log(
+                            "Service Worker error:",
+                            error
+                        );
+
+                    });
+
+            });
+
+        }
+
+    </script>
+
+</body>
+</html>
