@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Noxi AI</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='noxi-style.css') }}">
+</head>
+
+<body>
+
+    <!-- ==================== SIDEBAR OVERLAY ==================== -->
+
+<div id="sidebarOverlay" class="sidebar-overlay"></div>
+
+
+<!-- ==================== NOXI SIDEBAR ==================== -->
+
+<aside id="noxiSidebar" class="noxi-sidebar">
+
+    <!-- ==================== USER PROFILE ==================== -->
+
+<div class="user-profile">
+
+    <div class="profile-avatar">
+        👤
+    </div>
+
+    <div class="profile-info">
+
+        <span class="profile-name">
+            Noxi User
+        </span>
+
+        <span id="userEmail" class="profile-email">
+            Loading...
+        </span>
+
+    </div>
+
+</div>
+
+    <!-- ==================== SIDEBAR HEADER ==================== -->
+
+    <div class="sidebar-header">
+
+        <h2>🕘 Chats</h2>
+
+        <button id="closeSidebarBtn" type="button">
+            ✕
+        </button>
+
+    </div>
+
+
+    <!-- ==================== NEW CHAT ==================== -->
+
+    <button id="sidebarNewChatBtn" type="button">
+        ➕ New Chat
+    </button>
+
+    <!-- ==================== SHORT NOTES BUTTON ==================== -->
+
+    <button id="sidebarShortNotesBtn" type="button">
+            📝 Make Short Notes
+    </button>
+
+
+    <!-- ==================== CHAT HISTORY ==================== -->
+
+    <div id="recentChatsList" class="sidebar-chat-list">
+    </div>
+
+    <!-- ==================== LOGOUT BUTTON ==================== -->
+
+<button id="logoutBtn" type="button">
+    🚪 Logout
+</button>
+
+</aside>
+
+    <!-- ==================== NOXI MAIN ==================== -->
+
+    <main class="noxi-container">
+
+      <!-- ==================== NOXI HEADER ==================== -->
+
+      <div class="noxi-header">
+
+        <!-- ==================== SIDEBAR BUTTON ==================== -->
+    
+        <button id="openSidebarBtn" class="sidebar-toggle" type="button">
+            ☰
+        </button>
+    
+        <div class="noxi-logo">
+            🤖
+        </div>
+
+    <div class="noxi-title">
+
+        <h1>Noxi</h1>
+
+        <p>Your AI study assistant</p>
+
+    </div>
+
+</div>
+       
+<!-- ==================== SHORT NOTES POPUP ==================== -->
+
+<div id="shortNotesModal" class="short-notes-modal">
+
+    <div class="short-notes-box">
+
+        <h2>📝 Make Short Notes</h2>
+
+        <p>Apna chapter ya text yahan paste karo.</p>
+
+        <textarea
+            id="shortNotesInput"
+            placeholder="Paste your text here..."
+        ></textarea>
+
+        <div class="short-notes-actions">
+
+            <button id="cancelShortNotesBtn" type="button">
+                Cancel
+            </button>
+
+            <button id="generateShortNotesBtn" type="button">
+                Make Notes
+            </button>
+
+        </div>
+
+    </div>
+
+</div>
+
+        <div class="chat-box">
+
+    <!-- ==================== CHAT MESSAGES ==================== -->
+
+        <div id="chatMessages" class="chat-messages">
+</div>
+            <!-- ==================== CHAT INPUT ==================== -->
+
+<div class="chat-input-area">
+
+    <input
+        type="text"
+        id="userInput"
+        placeholder="Ask Noxi something..."
+    >
+
+    <button id="sendBtn" type="button">
+        Send
+    </button>
+
+</div>
+        </div>
+
+    </main>
+
+    <script
+    type="module"
+    src="{{ url_for('static', filename='noxi-app.js') }}">
+</script>
+
+<!-- ==================== CHAT ACTION POPUP ==================== -->
+
+<div id="chatActionOverlay" class="chat-action-overlay">
+
+    <div class="chat-action-popup">
+
+        <div class="chat-action-icon" id="chatActionIcon">
+            ✏️
+        </div>
+
+        <h3 id="chatActionTitle">
+            Rename Chat
+        </h3>
+
+        <p id="chatActionText">
+            Enter a new name for this chat.
+        </p>
+
+        <input
+            id="chatActionInput"
+            type="text"
+            maxlength="40"
+            placeholder="Chat name..."
+        >
+
+        <div class="chat-action-buttons">
+
+            <button
+                id="chatActionCancel"
+                type="button"
+            >
+                Cancel
+            </button>
+
+            <button
+                id="chatActionConfirm"
+                type="button"
+            >
+                Rename
+            </button>
+
+        </div>
+
+    </div>
+
+</div>
+
+</body>
+</html>
