@@ -446,7 +446,7 @@ sendBtn.addEventListener("click", function () {
     // ==================== SEND TO BACKEND ====================
 
     fetch(
-        "http://127.0.0.1:5001/ask",
+        "https://noxi-backend-y813.onrender.com/ask",
         {
             method: "POST",
 
@@ -591,7 +591,7 @@ function () {
     // ==================== SEND RE-EXPLANATION ====================
 
     fetch(
-        "http://127.0.0.1:5001/ask",
+        "https://noxi-backend-y813.onrender.com/ask",
         {
 
             method: "POST",
@@ -944,7 +944,7 @@ if (generateShortNotesBtn) {
             // ==================== SEND TO BACKEND ====================
 
             fetch(
-                "http://127.0.0.1:5001/short-notes",
+                "https://noxi-backend-y813.onrender.com/short-notes",
                 {
 
                     method: "POST",
@@ -1780,7 +1780,7 @@ function loadRecentChats() {
 
 
                     fetch(
-                        "http://127.0.0.1:5001/load-chat",
+                        "https://noxi-backend-y813.onrender.com/load-chat",
                         {
                             method: "POST",
 
@@ -1944,7 +1944,8 @@ if (newChatBtn) {
             // ==================== CLEAR BACKEND MEMORY ====================
 
             fetch(
-                "http://127.0.0.1:5001/new-chat",
+                "https://noxi-backend-y813.onrender.com/new-chat",
+                
                 {
 
                     method: "POST",
