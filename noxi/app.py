@@ -117,6 +117,8 @@ Do not pretend to be a human.
         headers=headers,
         json=payload
     )
+    print("Gemini Status:", response.status_code)
+    print("Gemini Response:", response.text)
 
     result = response.json()
 
