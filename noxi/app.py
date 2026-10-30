@@ -20,6 +20,7 @@ conversation_history = []
 CORS(app, resources={
     r"/ask": {"origins": "*"},
     r"/short-notes": {"origins": "*"},
+    r"/load-chat": {"origins": "*"},
     r"/new-chat": {"origins": "*"}
 })
 
