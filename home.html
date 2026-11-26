@@ -1,0 +1,1058 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>NoteX — Your Space to Think, Create & Learn</title>
+
+    <meta name="description" content="Meet NoteX, a modern student productivity workspace, and Noxi AI, your AI study assistant for notes, learning and everyday tasks.">
+    <meta name="keywords" content="NoteX, NoteX AI, Noxi AI, AI study assistant, student productivity app, online notes maker, study workspace">
+    <meta name="author" content="NoteX">
+    <meta name="robots" content="index, follow">
+
+    <link rel="canonical" href="https://notex-v2.onrender.com/">
+
+    <meta property="og:title" content="NoteX — Think Beyond Notes">
+    <meta property="og:description" content="A smarter space for your notes, ideas and AI-powered learning.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://notex-v2.onrender.com/">
+
+    <meta name="theme-color" content="#080b16">
+
+    <style>
+        /* ==================== RESET ==================== */
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background: #080b16;
+            color: #f4f5ff;
+            font-family: Arial, Helvetica, sans-serif;
+            overflow-x: hidden;
+        }
+
+        a {
+            color: inherit;
+            text-decoration: none;
+        }
+
+        button {
+            font-family: inherit;
+        }
+
+        /* ==================== BACKGROUND ==================== */
+
+        .background-glow {
+            position: fixed;
+            inset: 0;
+            pointer-events: none;
+            overflow: hidden;
+            z-index: -1;
+        }
+
+        .glow {
+            position: absolute;
+            width: 500px;
+            height: 500px;
+            border-radius: 50%;
+            filter: blur(130px);
+            opacity: .20;
+        }
+
+        .glow.one {
+            background: #713cff;
+            top: -220px;
+            left: -180px;
+        }
+
+        .glow.two {
+            background: #00c8ff;
+            right: -230px;
+            top: 250px;
+            opacity: .13;
+        }
+
+        .glow.three {
+            background: #a13bff;
+            bottom: -300px;
+            left: 35%;
+            opacity: .12;
+        }
+
+        /* ==================== NAVBAR ==================== */
+
+        .navbar {
+            width: 100%;
+            max-width: 1250px;
+            margin: auto;
+            padding: 24px 35px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            position: relative;
+            z-index: 10;
+        }
+
+        .brand {
+            display: flex;
+            align-items: center;
+            gap: 11px;
+            font-size: 23px;
+            font-weight: 800;
+            letter-spacing: -.8px;
+        }
+
+        .brand-icon {
+            width: 39px;
+            height: 39px;
+            border-radius: 13px;
+            display: grid;
+            place-items: center;
+            background: linear-gradient(135deg, #8055ff, #18cfff);
+            box-shadow: 0 0 25px #754aff55;
+            font-size: 20px;
+        }
+
+        .brand span {
+            color: #a99aff;
+        }
+
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: 32px;
+            color: #a8aec4;
+            font-size: 14px;
+        }
+
+        .nav-links a:hover {
+            color: white;
+        }
+
+        .nav-actions {
+            display: flex;
+            gap: 12px;
+            align-items: center;
+        }
+
+        .login-btn {
+            color: #c9cce0;
+            font-size: 14px;
+            padding: 11px 17px;
+        }
+
+        .nav-cta {
+            padding: 12px 20px;
+            border-radius: 11px;
+            background: #7955f5;
+            color: white;
+            font-size: 14px;
+            font-weight: bold;
+            box-shadow: 0 5px 25px #7955f544;
+            transition: .25s;
+        }
+
+        .nav-cta:hover {
+            transform: translateY(-3px);
+            background: #906fff;
+        }
+
+        /* ==================== HERO ==================== */
+
+        .hero {
+            max-width: 1150px;
+            margin: auto;
+            padding: 105px 25px 90px;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 65px;
+            align-items: center;
+            min-height: 610px;
+        }
+
+        .eyebrow {
+            display: inline-flex;
+            align-items: center;
+            gap: 9px;
+            border: 1px solid #8d75ff44;
+            background: #8d75ff12;
+            padding: 9px 15px;
+            border-radius: 30px;
+            color: #b9aaff;
+            font-size: 12px;
+            letter-spacing: .7px;
+            margin-bottom: 26px;
+        }
+
+        .live-dot {
+            width: 7px;
+            height: 7px;
+            border-radius: 50%;
+            background: #52e5bd;
+            box-shadow: 0 0 12px #52e5bd;
+        }
+
+        .hero h1 {
+            font-size: clamp(43px, 5.5vw, 69px);
+            line-height: 1.07;
+            letter-spacing: -3px;
+            font-weight: 800;
+        }
+
+        .gradient-text {
+            background: linear-gradient(100deg, #a78bff, #55d9ff);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+
+        .hero-description {
+            margin-top: 24px;
+            max-width: 470px;
+            color: #a6acc2;
+            font-size: 16px;
+            line-height: 1.8;
+        }
+
+        .hero-buttons {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-top: 34px;
+            flex-wrap: wrap;
+        }
+
+        .primary-btn {
+            padding: 15px 23px;
+            border-radius: 12px;
+            background: linear-gradient(110deg, #8057ff, #5e9dff);
+            font-size: 14px;
+            font-weight: bold;
+            box-shadow: 0 8px 35px #7655ff44;
+            transition: .25s;
+        }
+
+        .primary-btn:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 12px 40px #7655ff77;
+        }
+
+        .secondary-btn {
+            padding: 15px 22px;
+            border: 1px solid #ffffff20;
+            border-radius: 12px;
+            color: #d7d9e8;
+            font-size: 14px;
+            transition: .25s;
+        }
+
+        .secondary-btn:hover {
+            border-color: #9d8aff;
+            background: #ffffff08;
+        }
+
+        .hero-note {
+            margin-top: 24px;
+            color: #777f99;
+            font-size: 12px;
+        }
+
+        /* ==================== WORKSPACE PREVIEW ==================== */
+
+        .preview-wrap {
+            position: relative;
+            perspective: 1000px;
+        }
+
+        .preview-glow {
+            position: absolute;
+            inset: 15%;
+            background: #8055ff;
+            filter: blur(100px);
+            opacity: .28;
+        }
+
+        .workspace {
+            position: relative;
+            border: 1px solid #ffffff20;
+            background: linear-gradient(145deg, #151c32ee, #0c1222f5);
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 30px 90px #0009, 0 0 50px #8055ff12;
+            transform: rotateY(-5deg) rotateX(2deg);
+            animation: float 6s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: rotateY(-5deg) rotateX(2deg) translateY(0); }
+            50% { transform: rotateY(-5deg) rotateX(2deg) translateY(-9px); }
+        }
+
+        .window-bar {
+            height: 48px;
+            padding: 0 17px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            border-bottom: 1px solid #ffffff12;
+            background: #ffffff04;
+        }
+
+        .window-dots {
+            display: flex;
+            gap: 6px;
+        }
+
+        .window-dots i {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: #6e7791;
+        }
+
+        .window-name {
+            font-size: 11px;
+            color: #929bb4;
+        }
+
+        .workspace-content {
+            padding: 23px;
+        }
+
+        .workspace-heading {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 21px;
+        }
+
+        .workspace-heading h3 {
+            font-size: 17px;
+        }
+
+        .workspace-heading small {
+            color: #8992ac;
+            font-size: 10px;
+        }
+
+        .mini-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 12px;
+        }
+
+        .mini-card {
+            min-height: 115px;
+            border: 1px solid #ffffff12;
+            background: #ffffff06;
+            padding: 16px;
+            border-radius: 13px;
+        }
+
+        .mini-card .mini-icon {
+            font-size: 18px;
+            margin-bottom: 13px;
+        }
+
+        .mini-card h4 {
+            font-size: 12px;
+            margin-bottom: 7px;
+        }
+
+        .mini-card p {
+            font-size: 10px;
+            color: #929bb4;
+            line-height: 1.5;
+        }
+
+        .purple-card {
+            background: linear-gradient(140deg, #7955f522, #ffffff05);
+            border-color: #987bff33;
+        }
+
+        .cyan-card {
+            background: linear-gradient(140deg, #18cfff16, #ffffff05);
+            border-color: #18cfff30;
+        }
+
+        .note-lines {
+            margin-top: 18px;
+            padding: 15px;
+            border: 1px solid #ffffff12;
+            border-radius: 12px;
+            background: #080d1b;
+        }
+
+        .note-lines span {
+            display: block;
+            height: 5px;
+            border-radius: 5px;
+            background: #ffffff12;
+            margin: 9px 0;
+        }
+
+        .note-lines span:nth-child(1) { width: 65%; }
+        .note-lines span:nth-child(2) { width: 90%; }
+        .note-lines span:nth-child(3) { width: 45%; }
+
+        .floating-label {
+            position: absolute;
+            right: -22px;
+            bottom: 45px;
+            background: #151d32;
+            border: 1px solid #ffffff20;
+            border-radius: 12px;
+            padding: 13px 16px;
+            box-shadow: 0 15px 40px #0008;
+            font-size: 11px;
+            color: #c7c9dc;
+        }
+
+        .floating-label strong {
+            color: #65d9ff;
+        }
+
+        /* ==================== SECTION COMMON ==================== */
+
+        .section {
+            max-width: 1100px;
+            margin: auto;
+            padding: 90px 25px;
+        }
+
+        .section-heading {
+            text-align: center;
+            max-width: 650px;
+            margin: 0 auto 48px;
+        }
+
+        .section-heading small {
+            color: #a991ff;
+            font-size: 12px;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
+
+        .section-heading h2 {
+            margin-top: 15px;
+            font-size: clamp(30px, 4vw, 43px);
+            letter-spacing: -1.5px;
+        }
+
+        .section-heading p {
+            color: #929bb4;
+            line-height: 1.8;
+            font-size: 14px;
+            margin-top: 15px;
+        }
+
+        /* ==================== PRODUCT CARDS ==================== */
+
+        .product-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 22px;
+        }
+
+        .product-card {
+            position: relative;
+            overflow: hidden;
+            min-height: 290px;
+            padding: 31px;
+            border-radius: 20px;
+            border: 1px solid #ffffff17;
+            background: linear-gradient(145deg, #151c30, #0d1221);
+            transition: .3s;
+        }
+
+        .product-card:hover {
+            transform: translateY(-7px);
+            border-color: #8b77ff66;
+            box-shadow: 0 20px 60px #0005;
+        }
+
+        .product-card::after {
+            content: "";
+            position: absolute;
+            width: 220px;
+            height: 220px;
+            border-radius: 50%;
+            filter: blur(90px);
+            opacity: .17;
+            right: -80px;
+            top: -80px;
+            pointer-events: none;
+        }
+
+        .notex-card::after { background: #855cff; }
+        .noxi-card::after { background: #14caff; }
+
+        .product-icon {
+            width: 49px;
+            height: 49px;
+            display: grid;
+            place-items: center;
+            border-radius: 15px;
+            background: #8b6aff22;
+            font-size: 23px;
+            margin-bottom: 24px;
+        }
+
+        .noxi-card .product-icon {
+            background: #17cfff19;
+        }
+
+        .product-card h3 {
+            font-size: 24px;
+            margin-bottom: 12px;
+        }
+
+        .product-card p {
+            color: #9ca4bb;
+            font-size: 14px;
+            line-height: 1.8;
+            max-width: 400px;
+        }
+
+        .product-link {
+            display: inline-block;
+            margin-top: 25px;
+            font-size: 13px;
+            font-weight: bold;
+            color: #b39fff;
+        }
+
+        .noxi-card .product-link {
+            color: #66dfff;
+        }
+
+        /* ==================== FEATURES ==================== */
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 15px;
+        }
+
+        .feature {
+            padding: 23px;
+            border: 1px solid #ffffff12;
+            background: #ffffff05;
+            border-radius: 15px;
+            transition: .25s;
+        }
+
+        .feature:hover {
+            background: #ffffff09;
+            border-color: #927aff55;
+        }
+
+        .feature-icon {
+            font-size: 22px;
+            margin-bottom: 17px;
+        }
+
+        .feature h4 {
+            font-size: 15px;
+            margin-bottom: 9px;
+        }
+
+        .feature p {
+            font-size: 12px;
+            line-height: 1.7;
+            color: #929bb4;
+        }
+
+        /* ==================== FINAL CTA ==================== */
+
+        .final-cta {
+            max-width: 1050px;
+            margin: 45px auto 100px;
+            padding: 65px 25px;
+            text-align: center;
+            border: 1px solid #9b83ff33;
+            border-radius: 24px;
+            background:
+                radial-gradient(ellipse at top, #815aff25, transparent 65%),
+                linear-gradient(130deg, #151a30, #0e1425);
+        }
+
+        .final-cta h2 {
+            font-size: clamp(29px, 4vw, 42px);
+            letter-spacing: -1px;
+        }
+
+        .final-cta p {
+            color: #9ba4bc;
+            margin: 16px auto 28px;
+            font-size: 14px;
+            line-height: 1.7;
+            max-width: 500px;
+        }
+
+        /* ==================== FOOTER ==================== */
+
+        footer {
+            border-top: 1px solid #ffffff12;
+            padding: 28px 25px;
+            text-align: center;
+            color: #737e98;
+            font-size: 12px;
+        }
+
+        footer strong {
+            color: #a99aff;
+        }
+
+        /* ==================== RESPONSIVE ==================== */
+
+        @media (max-width: 850px) {
+            .nav-links {
+                display: none;
+            }
+
+            .hero {
+                grid-template-columns: 1fr;
+                gap: 55px;
+                padding-top: 75px;
+            }
+
+            .hero-content {
+                text-align: center;
+            }
+
+            .hero-description {
+                margin-left: auto;
+                margin-right: auto;
+            }
+
+            .hero-buttons {
+                justify-content: center;
+            }
+
+            .workspace {
+                max-width: 550px;
+                margin: auto;
+            }
+
+            .floating-label {
+                right: 0;
+            }
+        }
+
+        @media (max-width: 600px) {
+            .navbar {
+                padding: 18px 17px;
+            }
+
+            .brand {
+                font-size: 19px;
+            }
+
+            .brand-icon {
+                width: 34px;
+                height: 34px;
+            }
+
+            .nav-actions {
+                gap: 5px;
+            }
+
+            .login-btn {
+                padding: 10px;
+                font-size: 12px;
+            }
+
+            .nav-cta {
+                padding: 10px 13px;
+                font-size: 12px;
+            }
+
+            .hero {
+                padding: 65px 20px 55px;
+                gap: 45px;
+            }
+
+            .hero h1 {
+                letter-spacing: -2px;
+            }
+
+            .hero-description {
+                font-size: 14px;
+            }
+
+            .workspace-content {
+                padding: 15px;
+            }
+
+            .mini-card {
+                padding: 12px;
+            }
+
+            .section {
+                padding: 65px 20px;
+            }
+
+            .product-grid,
+            .features-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .product-card {
+                min-height: 250px;
+            }
+
+            .final-cta {
+                margin: 20px 15px 65px;
+                padding: 50px 20px;
+            }
+
+            .floating-label {
+                right: -5px;
+                bottom: 20px;
+                font-size: 9px;
+            }
+        }
+
+        /* ==================== REDUCED MOTION ==================== */
+
+        @media (prefers-reduced-motion: reduce) {
+            *,
+            *::before,
+            *::after {
+                scroll-behavior: auto !important;
+                animation-duration: .01ms !important;
+                transition-duration: .01ms !important;
+            }
+        }
+    </style>
+    <meta name="google-site-verification" content="RV-XaHUMoiCeiFRzH8Rs7NpYiz7qJN7iMt0io_NsCOg" />
+</head>
+
+<body>
+
+    <!-- ==================== BACKGROUND ==================== -->
+
+    <div class="background-glow">
+        <div class="glow one"></div>
+        <div class="glow two"></div>
+        <div class="glow three"></div>
+    </div>
+
+    <!-- ==================== NAVBAR ==================== -->
+
+    <nav class="navbar">
+
+        <a href="/" class="brand">
+            <div class="brand-icon">N</div>
+            Note<span>X</span>
+        </a>
+
+        <div class="nav-links">
+            <a href="#products">Products</a>
+            <a href="#features">Features</a>
+            <a href="#about">About</a>
+        </div>
+
+        <div class="nav-actions">
+            <a href="/login" class="login-btn">Log in</a>
+            <a href="/login" class="nav-cta">Get Started ↗</a>
+        </div>
+
+    </nav>
+
+    <!-- ==================== HERO ==================== -->
+
+    <main>
+
+        <section class="hero">
+
+            <div class="hero-content">
+
+                <div class="eyebrow">
+                    <span class="live-dot"></span>
+                    A NEW WAY TO THINK & CREATE
+                </div>
+
+                <h1>
+                    Your ideas.
+                    <br>
+                    Your space.
+                    <br>
+                    <span class="gradient-text">Your future.</span>
+                </h1>
+
+                <p class="hero-description">
+                    Meet NoteX — a modern space for your notes, ideas
+                    and productivity. And with Noxi AI, give your
+                    learning a smarter direction.
+                </p>
+
+                <div class="hero-buttons">
+                    <a href="/login" class="primary-btn">
+                        Explore NoteX ↗
+                    </a>
+
+                    <a href="/noxi-login" class="secondary-btn">
+                        Discover Noxi AI →
+                    </a>
+                </div>
+
+                <div class="hero-note">
+                    Built to make your digital workspace feel different.
+                </div>
+
+            </div>
+
+            <!-- ==================== APP PREVIEW ==================== -->
+
+            <div class="preview-wrap">
+
+                <div class="preview-glow"></div>
+
+                <div class="workspace">
+
+                    <div class="window-bar">
+                        <div class="window-dots">
+                            <i></i><i></i><i></i>
+                        </div>
+                        <div class="window-name">NOTEX WORKSPACE</div>
+                        <div class="window-name">● READY</div>
+                    </div>
+
+                    <div class="workspace-content">
+
+                        <div class="workspace-heading">
+                            <h3>Your Workspace</h3>
+                            <small>CREATIVE MODE</small>
+                        </div>
+
+                        <div class="mini-grid">
+
+                            <div class="mini-card purple-card">
+                                <div class="mini-icon">📝</div>
+                                <h4>Your Notes</h4>
+                                <p>Capture thoughts and keep ideas organised.</p>
+                            </div>
+
+                            <div class="mini-card cyan-card">
+                                <div class="mini-icon">✦</div>
+                                <h4>Noxi AI</h4>
+                                <p>Explore AI-powered study assistance.</p>
+                            </div>
+
+                            <div class="mini-card">
+                                <div class="mini-icon">📌</div>
+                                <h4>Stay Organised</h4>
+                                <p>Keep important ideas close at hand.</p>
+                            </div>
+
+                            <div class="mini-card">
+                                <div class="mini-icon">⚡</div>
+                                <h4>Stay Focused</h4>
+                                <p>Make your digital work feel simpler.</p>
+                            </div>
+
+                        </div>
+
+                        <div class="note-lines">
+                            <span></span>
+                            <span></span>
+                            <span></span>
+                        </div>
+
+                    </div>
+                </div>
+
+                <div class="floating-label">
+                    <strong>✦ Noxi AI</strong> — Ideas meet intelligence
+                </div>
+
+            </div>
+
+        </section>
+
+        <!-- ==================== PRODUCTS ==================== -->
+
+        <section class="section" id="products">
+
+            <div class="section-heading">
+                <small>THE NOTEX ECOSYSTEM</small>
+                <h2>One ecosystem. More possibilities.</h2>
+                <p>
+                    Two connected experiences designed to help you
+                    organise your thoughts and explore smarter learning.
+                </p>
+            </div>
+
+            <div class="product-grid">
+
+                <div class="product-card notex-card">
+
+                    <div class="product-icon">📝</div>
+
+                    <h3>NoteX</h3>
+
+                    <p>
+                        Your personal digital workspace. Create notes,
+                        organise thoughts, save important information
+                        and bring your ideas together.
+                    </p>
+
+                    <a href="/login" class="product-link">
+                        Explore NoteX →
+                    </a>
+
+                </div>
+
+                <div class="product-card noxi-card">
+
+                    <div class="product-icon">✦</div>
+
+                    <h3>Noxi AI</h3>
+
+                    <p>
+                        An AI-powered study assistant to help you
+                        understand topics, create short notes and
+                        explore ideas with AI.
+                    </p>
+
+                    <a href="/noxi-login" class="product-link">
+                        Explore Noxi AI →
+                    </a>
+
+                </div>
+
+            </div>
+
+        </section>
+
+        <!-- ==================== FEATURES ==================== -->
+
+        <section class="section" id="features">
+
+            <div class="section-heading">
+                <small>MADE FOR YOUR FLOW</small>
+                <h2>Less distraction. More creation.</h2>
+                <p>
+                    A thoughtfully designed experience for your
+                    everyday digital work and learning.
+                </p>
+            </div>
+
+            <div class="features-grid">
+
+                <div class="feature">
+                    <div class="feature-icon">🎨</div>
+                    <h4>Your Personal Space</h4>
+                    <p>
+                        Keep your thoughts and notes in one
+                        organised digital workspace.
+                    </p>
+                </div>
+
+                <div class="feature">
+                    <div class="feature-icon">🤖</div>
+                    <h4>AI Study Assistance</h4>
+                    <p>
+                        Use Noxi AI to explore topics and
+                        prepare helpful study notes.
+                    </p>
+                </div>
+
+                <div class="feature">
+                    <div class="feature-icon">🌙</div>
+                    <h4>Midnight Experience</h4>
+                    <p>
+                        A calm, dark interface designed
+                        for a focused digital experience.
+                    </p>
+                </div>
+
+                <div class="feature">
+                    <div class="feature-icon">📌</div>
+                    <h4>Keep Things Close</h4>
+                    <p>
+                        Pin important notes and chats
+                        for easier access.
+                    </p>
+                </div>
+
+                <div class="feature">
+                    <div class="feature-icon">⚡</div>
+                    <h4>Simple Workflow</h4>
+                    <p>
+                        Spend less time navigating and
+                        more time working on your ideas.
+                    </p>
+                </div>
+
+                <div class="feature">
+                    <div class="feature-icon">🚀</div>
+                    <h4>Always Evolving</h4>
+                    <p>
+                        A growing ecosystem with new
+                        possibilities ahead.
+                    </p>
+                </div>
+
+            </div>
+
+        </section>
+
+        <!-- ==================== ABOUT ==================== -->
+
+        <section class="section" id="about">
+
+            <div class="section-heading">
+                <small>THE IDEA BEHIND NOTEX</small>
+                <h2>Technology should make room for ideas.</h2>
+                <p>
+                    NoteX is built around a simple thought:
+                    your digital tools should help you think,
+                    learn and create — without getting in your way.
+                </p>
+            </div>
+
+        </section>
+
+        <!-- ==================== FINAL CTA ==================== -->
+
+        <section class="final-cta">
+
+            <h2>
+                Ready to explore
+                <span class="gradient-text">what's next?</span>
+            </h2>
+
+            <p>
+                Start with NoteX. Discover Noxi AI.
+                Give your ideas a space to grow.
+            </p>
+
+            <a href="/login" class="primary-btn">
+                Enter NoteX Workspace ↗
+            </a>
+
+        </section>
+
+    </main>
+
+    <!-- ==================== FOOTER ==================== -->
+
+    <footer>
+        © 2026 <strong>NoteX</strong>. Built for ideas, learning and creativity.
+    </footer>
+
+</body>
+</html>

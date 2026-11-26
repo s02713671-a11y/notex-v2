@@ -1,0 +1,715 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta name="robots" content="noindex, nofollow">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Noxi AI — Your Intelligent Workspace</title>
+
+    <link rel="stylesheet"
+        href="{{ url_for('static', filename='noxi-style.css') }}">
+</head>
+
+<body>
+
+    <!-- ==================== SIDEBAR OVERLAY ==================== -->
+
+    <div id="sidebarOverlay" class="sidebar-overlay"></div>
+
+
+    <!-- ==================== MAIN SIDEBAR ==================== -->
+
+    <aside id="noxiSidebar" class="noxi-sidebar">
+
+        <!-- BRAND -->
+
+        <div class="sidebar-brand">
+
+            <div class="brand-icon">N</div>
+
+            <div class="brand-info">
+                <h2>NOXI</h2>
+                <span>INTELLIGENCE SPACE</span>
+            </div>
+
+            <button id="closeSidebarBtn"
+                class="close-sidebar-btn"
+                type="button">✕</button>
+
+        </div>
+
+
+        <!-- NEW CHAT -->
+
+        <button id="sidebarNewChatBtn"
+            class="new-chat-btn"
+            type="button">
+
+            <span>＋</span>
+            <span>New Chat</span>
+            <small>⌘ K</small>
+
+        </button>
+
+
+        <!-- ==================== WORKSPACE ==================== -->
+
+        <div class="sidebar-section">
+
+            <div class="sidebar-section-label">WORKSPACE</div>
+
+            <button class="sidebar-nav-item active" type="button">
+                <span class="nav-icon">◈</span>
+                <span>Chats</span>
+            </button>
+
+            <button id="sidebarShortNotesBtn"
+                class="sidebar-nav-item"
+                type="button">
+
+                <span class="nav-icon">▤</span>
+                <span>Make Short Notes</span>
+
+            </button>
+
+            <button class="sidebar-nav-item"
+                type="button"
+                id="libraryBtn">
+
+                <span class="nav-icon">▣</span>
+                <span>Library</span>
+
+            </button>
+
+        </div>
+
+
+        <!-- ==================== LIBRARY MODAL ==================== -->
+
+        <div id="libraryModal" class="modal hidden">
+
+            <div class="modal-content">
+
+                <h2>▣ My Library</h2>
+
+                <div class="library-tabs">
+
+                    <button id="myNotesTab"
+                        type="button"
+                        class="active">
+                        My Notes
+                    </button>
+
+                    <button id="shortNotesTab"
+                        type="button">
+                        Short Notes
+                    </button>
+
+                </div>
+
+                <div id="myNotesPanel">
+
+                    <input
+                        type="text"
+                        id="libraryNoteTitle"
+                        placeholder="Note title..."
+                    >
+
+                    <textarea
+                        id="libraryNoteContent"
+                        placeholder="Write your note here..."
+                    ></textarea>
+
+                    <button id="saveLibraryNoteBtn"
+                        type="button">
+                        + Save Note
+                    </button>
+
+                </div>
+
+                <div id="libraryItems">
+                    Your saved notes will appear here.
+                </div>
+
+                <button id="closeLibraryBtn" type="button">
+                    Close
+                </button>
+
+            </div>
+
+        </div>
+
+
+        <!-- ==================== SEARCH CHATS ==================== -->
+
+        <div class="sidebar-search">
+
+            <span>⌕</span>
+
+            <input
+                id="searchChatsInput"
+                type="text"
+                placeholder="Search conversations..."
+            >
+
+        </div>
+
+
+        <!-- ==================== PINNED CHATS ==================== -->
+
+        <div class="sidebar-section chat-history-section">
+
+            <div class="sidebar-section-heading">
+                <span>PINNED</span>
+                <span class="section-symbol">⌖</span>
+            </div>
+
+            <div id="pinnedChatsList"
+                class="sidebar-chat-list">
+
+                <div class="sidebar-empty-text">
+                    Your pinned chats will appear here
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- ==================== RECENT CHATS ==================== -->
+
+        <div class="sidebar-section chat-history-section">
+
+            <div class="sidebar-section-heading">
+                <span>RECENTS</span>
+                <span class="section-symbol">◷</span>
+            </div>
+
+            <div id="recentChatsList"
+                class="sidebar-chat-list">
+            </div>
+
+        </div>
+
+
+        <!-- ==================== PROJECTS ==================== -->
+
+        <div class="sidebar-section projects-section">
+
+            <div class="sidebar-section-heading">
+
+                <span>PROJECTS</span>
+
+                <button id="addProjectBtn"
+                    type="button"
+                    class="section-add-btn">
+                    ＋
+                </button>
+
+            </div>
+
+            <div id="projectsList" class="projects-list">
+
+                <div class="sidebar-empty-text">
+                    Create a project to organize your chats
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- ==================== SIDEBAR BOTTOM ==================== -->
+
+        <div class="sidebar-bottom">
+
+            <button id="settingsBtn"
+                class="sidebar-nav-item"
+                type="button">
+
+                <span class="nav-icon">⚙</span>
+                <span>Settings</span>
+
+            </button>
+
+            <button id="helpBtn"
+                class="sidebar-nav-item"
+                type="button">
+
+                <span class="nav-icon">?</span>
+                <span>Help & About</span>
+
+            </button>
+
+            <div class="sidebar-divider"></div>
+
+
+            <!-- USER PROFILE -->
+
+            <div class="user-profile">
+
+                <div class="profile-avatar">N</div>
+
+                <div class="profile-info">
+
+                    <span class="profile-name">Noxi User</span>
+
+                    <span id="userEmail" class="profile-email">
+                        Loading...
+                    </span>
+
+                </div>
+
+                <button id="logoutBtn"
+                    class="logout-btn"
+                    type="button"
+                    title="Logout">
+                    ↗
+                </button>
+
+            </div>
+
+        </div>
+
+    </aside>
+
+
+    <!-- ==================== MAIN APPLICATION ==================== -->
+
+    <main class="noxi-container">
+
+
+        <!-- TOP HEADER -->
+
+        <header class="noxi-header">
+
+            <div class="header-left">
+
+                <button id="openSidebarBtn"
+                    class="sidebar-toggle"
+                    type="button">
+                    ☰
+                </button>
+
+                <div class="header-brand-icon">N</div>
+
+                <div class="noxi-title">
+                    <h1>Noxi <span>AI</span></h1>
+                    <p>Your intelligent study companion</p>
+                </div>
+
+            </div>
+
+            <div class="header-right">
+
+                <div class="ai-status">
+                    <span class="status-dot"></span>
+                    <span>AI ONLINE</span>
+                </div>
+
+            </div>
+
+        </header>
+
+
+        <!-- ==================== CHAT WORKSPACE ==================== -->
+
+        <section class="chat-workspace">
+
+            <div class="chat-top-info">
+
+                <div>
+                    <span class="workspace-label">AI WORKSPACE</span>
+                    <h2>Your ideas, amplified.</h2>
+                </div>
+
+            </div>
+
+
+            <!-- CHAT MESSAGES -->
+
+            <div id="chatMessages" class="chat-messages">
+            </div>
+
+
+            <!-- CHAT INPUT -->
+
+            <div class="chat-input-wrapper">
+
+                <div class="chat-input-area">
+
+                    <input
+                        type="text"
+                        id="userInput"
+                        placeholder="Ask Noxi anything..."
+                        autocomplete="off"
+                    >
+
+                    <button id="sendBtn" type="button">
+                        <span>Send</span>
+                        <span>➤</span>
+                    </button>
+
+                </div>
+
+                <div class="input-footer">
+                    <span>✦ Noxi can make mistakes. Verify important answers.</span>
+                    <span>POWERED BY AI</span>
+                </div>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <!-- ==================== SETTINGS MODAL ==================== -->
+
+    <div id="settingsModal" class="noxi-extra-modal hidden">
+
+        <div class="noxi-extra-content">
+
+            <div class="noxi-extra-header">
+
+                <div>
+                    <span class="extra-eyebrow">PERSONALIZE</span>
+                    <h2>⚙ Settings</h2>
+                    <p>Customize your Noxi experience.</p>
+                </div>
+
+                <button id="closeSettingsBtn"
+                    class="extra-close-btn"
+                    type="button">✕</button>
+
+            </div>
+
+
+            <!-- APPEARANCE -->
+
+            <div class="settings-group">
+
+                <h3>Appearance</h3>
+
+                <div class="settings-option">
+
+                    <div>
+                        <strong>Theme</strong>
+                        <p>Choose your workspace appearance.</p>
+                    </div>
+
+                    <select id="themeSelect">
+                        <option value="dark">Dark</option>
+                        <option value="light">Light</option>
+                    </select>
+
+                </div>
+
+            </div>
+
+
+            <!-- CHAT PREFERENCES -->
+
+            <div class="settings-group">
+
+                <h3>Chat Preferences</h3>
+
+                <label class="settings-option">
+
+                    <div>
+                        <strong>Enter to Send</strong>
+                        <p>Send messages by pressing Enter.</p>
+                    </div>
+
+                    <input
+                        type="checkbox"
+                        id="enterToSendToggle"
+                        checked
+                    >
+
+                </label>
+
+            </div>
+
+
+            <!-- SETTINGS ACTIONS -->
+
+            <div class="settings-actions">
+
+                <button id="resetSettingsBtn"
+                    type="button">
+                    Reset Settings
+                </button>
+
+                <button id="saveSettingsBtn"
+                    type="button">
+                    Save Changes
+                </button>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!-- ==================== HELP & ABOUT CENTER ==================== -->
+
+    <div id="helpModal" class="noxi-extra-modal hidden">
+
+        <div class="noxi-extra-content help-content">
+
+            <div class="noxi-extra-header">
+
+                <div>
+                    <span class="extra-eyebrow">SUPPORT CENTER</span>
+                    <h2>✦ Help & About</h2>
+                    <p>Everything you need to know about Noxi.</p>
+                </div>
+
+                <button id="closeHelpBtn"
+                    class="extra-close-btn"
+                    type="button">✕</button>
+
+            </div>
+
+
+            <!-- ABOUT NOXI -->
+
+            <div class="help-about-card">
+
+                <div class="help-logo">N</div>
+
+                <div>
+                    <h3>Meet Noxi AI</h3>
+                    <p>
+                        Your intelligent study companion.
+                        Learn, organize and explore your ideas
+                        in one workspace.
+                    </p>
+                    <span class="help-version">NOXI AI · V2</span>
+                </div>
+
+            </div>
+
+
+            <!-- FAQ -->
+
+            <div class="help-section">
+
+                <h3>Frequently Asked Questions</h3>
+
+                <details class="help-faq">
+                    <summary>What is Noxi AI?</summary>
+                    <p>
+                        Noxi is an AI-powered study companion
+                        designed to help you understand topics
+                        and organize your study material.
+                    </p>
+                </details>
+
+                <details class="help-faq">
+                    <summary>How can I generate Short Notes?</summary>
+                    <p>
+                        Open Make Short Notes, paste your study
+                        material and select Generate Notes.
+                    </p>
+                </details>
+
+                <details class="help-faq">
+                    <summary>Where are my saved notes?</summary>
+                    <p>
+                        Open Library from the sidebar.
+                        Your saved notes are available in
+                        My Notes and Short Notes.
+                    </p>
+                </details>
+
+                <details class="help-faq">
+                    <summary>Why is Noxi responding slowly?</summary>
+                    <p>
+                        Response time can depend on server
+                        availability, internet connection
+                        and AI processing time.
+                    </p>
+                </details>
+
+                <details class="help-faq">
+                    <summary>Do I need an account?</summary>
+                    <p>
+                        Sign in to access your Noxi workspace
+                        and account-specific features.
+                    </p>
+                </details>
+
+            </div>
+
+
+            <!-- TROUBLESHOOTING -->
+
+            <div class="help-section">
+
+                <h3>Quick Troubleshooting</h3>
+
+                <div class="help-tip">
+                    <strong>AI is not responding?</strong>
+                    <p>Check your internet connection and try again.</p>
+                </div>
+
+                <div class="help-tip">
+                    <strong>Saved notes are missing?</strong>
+                    <p>Check that you are signed into the correct account.</p>
+                </div>
+
+                <div class="help-tip">
+                    <strong>Page is not updating?</strong>
+                    <p>Try refreshing the page.</p>
+                </div>
+
+            </div>
+
+
+            <!-- ABOUT FOOTER -->
+
+            <div class="help-footer">
+                <span>Made with passion.</span>
+                <strong>NOXI AI</strong>
+                <small>Your ideas, amplified.</small>
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!-- ==================== PROJECTS COMING SOON ==================== -->
+
+    <div id="projectComingSoonModal"
+        class="noxi-extra-modal hidden">
+
+        <div class="noxi-extra-content project-coming-content">
+
+            <button id="closeProjectModalBtn"
+                class="extra-close-btn"
+                type="button">✕</button>
+
+            <div class="project-orb">
+                <span>✦</span>
+            </div>
+
+            <span class="extra-eyebrow">SOMETHING BIG IS BREWING</span>
+
+            <h2>Projects Are Coming Soon</h2>
+
+            <p>
+                A new way to organize your ideas, chats
+                and workspaces is under development.
+            </p>
+
+            <div class="project-status">
+                <span class="status-dot"></span>
+                IN DEVELOPMENT
+            </div>
+
+            <button id="projectGotItBtn"
+                type="button">
+                Got it
+            </button>
+
+            <small>Stay tuned for something amazing.</small>
+
+        </div>
+
+    </div>
+
+
+    <!-- ==================== SHORT NOTES MODAL ==================== -->
+
+    <div id="shortNotesModal" class="short-notes-modal">
+
+        <div class="short-notes-box">
+
+            <div class="modal-heading">
+
+                <div class="modal-icon">▤</div>
+
+                <div>
+                    <h2>Make Short Notes</h2>
+                    <p>Turn lengthy chapters into clear notes.</p>
+                </div>
+
+            </div>
+
+            <textarea
+                id="shortNotesInput"
+                placeholder="Paste your chapter or study material here..."
+            ></textarea>
+
+            <div class="short-notes-actions">
+
+                <button id="cancelShortNotesBtn" type="button">
+                    Cancel
+                </button>
+
+                <button id="generateShortNotesBtn" type="button">
+                    <span>✦</span> Generate Notes
+                </button>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!-- ==================== CHAT ACTION POPUP ==================== -->
+
+    <div id="chatActionOverlay" class="chat-action-overlay">
+
+        <div class="chat-action-popup">
+
+            <div class="chat-action-icon" id="chatActionIcon">
+                ✏️
+            </div>
+
+            <h3 id="chatActionTitle">Rename Chat</h3>
+
+            <p id="chatActionText">
+                Enter a new name for this conversation.
+            </p>
+
+            <input
+                id="chatActionInput"
+                type="text"
+                maxlength="40"
+                placeholder="Chat name..."
+            >
+
+            <div class="chat-action-buttons">
+
+                <button id="chatActionCancel" type="button">
+                    Cancel
+                </button>
+
+                <button id="chatActionConfirm" type="button">
+                    Rename
+                </button>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!-- ==================== APPLICATION SCRIPT ==================== -->
+
+    <script type="module"
+        src="{{ url_for('static', filename='noxi-app.js') }}">
+    </script>
+
+</body>
+</html>

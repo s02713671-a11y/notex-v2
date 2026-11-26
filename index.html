@@ -1,0 +1,314 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta name="robots" content="noindex, nofollow">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>NoteX — Your Personal Workspace</title>
+
+    <link rel="manifest" href="{{ url_for('static', filename='manifest.json') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <link rel="icon" type="image/png" href="{{ url_for('static', filename='icons/icon-192.png') }}">
+</head>
+
+<body>
+
+    <!-- ==================== MAIN HEADER ==================== -->
+
+    <header class="header">
+
+        <div class="brand-area">
+            <div class="brand-icon">N</div>
+
+            <div class="brand-text">
+                <h1>NoteX</h1>
+                <p>Your personal space for ideas.</p>
+            </div>
+        </div>
+
+        <div class="header-actions">
+
+            <button id="addNoteBtn" type="button">
+                ＋ New Note
+            </button>
+
+            <button id="quickMenuBtn" type="button" aria-label="Open menu">
+                ⋯
+            </button>
+
+        </div>
+
+    </header>
+
+
+    <!-- ==================== QUICK MENU ==================== -->
+
+    <div id="quickMenu" class="quick-menu" style="display: none;">
+
+        <button id="settingsBtn" type="button">⚙️ Settings</button>
+
+        <button id="appearanceBtn" type="button">🎨 Appearance</button>
+
+        <button id="quickLayoutBtn" type="button">▦ Layout</button>
+
+        <button id="quickDeletedBtn" type="button">🗑️ Recently Deleted</button>
+
+        <button id="aboutNoteBtn" type="button">ℹ️ About NoteX</button>
+
+        <button id="notexLogoutBtn" type="button">🚪 Logout</button>
+
+    </div>
+
+
+    <!-- ==================== MAIN DASHBOARD ==================== -->
+
+    <main class="dashboard">
+
+        <!-- ==================== WELCOME SECTION ==================== -->
+
+        <section class="welcome-section">
+
+            <div class="welcome-content">
+
+                <span class="welcome-label">YOUR WORKSPACE</span>
+
+                <h2>Welcome to NoteX.</h2>
+
+                <p>
+                    Capture your thoughts, organize your ideas
+                    and keep everything in one place.
+                </p>
+
+            </div>
+
+            <!-- ==================== NOXI AI CIRCLE ==================== -->
+
+            <div class="noxi-area">
+
+                <button id="hoaxdk" type="button" aria-label="Meet Noxi AI">
+
+                    <span class="noxi-orb-icon">✦</span>
+
+                    <span class="noxi-orb-text">Meet Noxi</span>
+
+                </button>
+
+                <p>Your AI companion</p>
+
+            </div>
+
+        </section>
+
+
+        <!-- ==================== NOTES TOOLBAR ==================== -->
+
+        <section class="notes-toolbar">
+
+            <div class="notes-heading">
+
+                <span class="section-label">YOUR COLLECTION</span>
+
+                <h2>My Notes</h2>
+
+                <p id="noteCounter">0 Notes • 0 Pinned</p>
+
+            </div>
+
+            <div class="notes-controls">
+
+                <button id="darkModeBtn" type="button">
+                    ◐ Theme
+                </button>
+
+                <button id="layoutToggleBtn" type="button">
+                    ▦ Layout
+                </button>
+
+                <button id="deletedBtn" type="button">
+                    🗑️ Deleted
+                </button>
+
+            </div>
+
+        </section>
+
+
+        <!-- ==================== SEARCH ==================== -->
+
+        <div class="search-box">
+
+            <span class="search-icon">⌕</span>
+
+            <input
+                type="text"
+                id="searchInput"
+                placeholder="Search your notes..."
+                autocomplete="off"
+            >
+
+        </div>
+
+
+        <!-- ==================== TAG FILTER ==================== -->
+
+        <div class="tag-filter-box">
+
+            <select id="tagFilter">
+
+                <option value="all">🏷️ All Tags</option>
+
+            </select>
+
+        </div>
+
+
+        <!-- ==================== NOTES GRID ==================== -->
+
+        <section class="notes-section">
+
+            <div class="notes-container">
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <!-- ==================== APPEARANCE MODAL ==================== -->
+
+    <div id="appearanceModal" class="appearance-modal">
+
+        <div class="appearance-box">
+
+            <button id="closeAppearance" type="button">✕</button>
+
+            <h2>🎨 Appearance</h2>
+
+            <p>Choose your preferred theme.</p>
+
+            <button id="darkThemeOption" type="button">
+                🌙 Dark Mode
+            </button>
+
+            <button id="lightThemeOption" type="button">
+                ☀️ Light Mode
+            </button>
+
+        </div>
+
+    </div>
+
+
+    <!-- ==================== SETTINGS MODAL ==================== -->
+
+    <div id="settingsModal" class="settings-modal">
+
+        <div class="settings-box">
+
+            <button id="closeSettings" type="button">✕</button>
+
+            <h2>⚙️ Settings</h2>
+
+            <div class="settings-option">
+                <strong>📝 Notes</strong>
+                <p>Manage your notes and preferences.</p>
+            </div>
+
+            <div class="settings-option">
+                <strong>🎨 Appearance</strong>
+                <p>Customize your workspace theme.</p>
+            </div>
+
+            <div class="settings-option">
+                <strong>ℹ️ About NoteX</strong>
+                <p>Version 2.0</p>
+            </div>
+
+            <div class="settings-option">
+                <strong>🗑️ Clear All Notes</strong>
+                <p>Delete all your saved notes.</p>
+
+                <button id="clearAllNotesBtn" type="button">
+                    Clear All Notes
+                </button>
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!-- ==================== ABOUT NOTEX MODAL ==================== -->
+
+    <div id="aboutModal" class="about-modal">
+
+        <div class="about-box">
+
+            <button id="closeAbout" type="button">✕</button>
+
+            <div class="about-icon">N</div>
+
+            <h2>About NoteX</h2>
+
+            <p class="about-version">Version 2.0</p>
+
+            <p class="about-description">
+                Your personal space for ideas.
+            </p>
+
+            <p class="about-text">
+                NoteX helps you capture thoughts, organize
+                information and manage your notes easily.
+            </p>
+
+            <div class="about-divider"></div>
+
+            <p class="about-footer">
+                Made with ❤️ for better ideas.
+            </p>
+
+        </div>
+
+    </div>
+
+
+    <!-- ==================== JAVASCRIPT ==================== -->
+
+    <script src="{{ url_for('static', filename='app.js') }}"></script>
+
+    <script
+        type="module"
+        src="{{ url_for('static', filename='notex-auth.js') }}">
+    </script>
+
+
+    <!-- ==================== SERVICE WORKER ==================== -->
+
+    <script>
+
+        if ("serviceWorker" in navigator) {
+
+            window.addEventListener("load", function () {
+
+                navigator.serviceWorker.register("/sw.js")
+
+                    .then(function () {
+                        console.log("NoteX Service Worker registered");
+                    })
+
+                    .catch(function (error) {
+                        console.log("Service Worker error:", error);
+                    });
+
+            });
+
+        }
+
+    </script>
+
+</body>
+</html>

@@ -26,12 +26,18 @@ GEMINI_URL = (
     "?key=" + GEMINI_API_KEY
 )
 
-# ==================== NOTEX LOGIN ====================
+# ==================== NOTEX SEO HOMEPAGE ====================
 
 @app.route("/")
+def home():
+    return render_template("home.html")
+
+
+# ==================== NOTEX LOGIN ====================
+
+@app.route("/login")
 def notex_login():
     return render_template("notex-login.html")
-
 
 # ==================== NOTEX APP ====================
 
