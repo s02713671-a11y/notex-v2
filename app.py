@@ -1,7 +1,17 @@
+
 import os
 from flask import Flask, request, jsonify, render_template
 
 app = Flask(__name__)
+
+app = Flask(__name__)
+
+print("APP ROOT:", app.root_path)
+print("TEMPLATE FOLDER:", app.template_folder)
+print("TEMPLATE PATH:", app.jinja_loader.searchpath)
+print("HOME EXISTS:", os.path.exists(
+    os.path.join(app.root_path, "templates", "home.html")
+))
 
 # ==================== NOXI PAGE ====================
 
